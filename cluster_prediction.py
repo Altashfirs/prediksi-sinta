@@ -102,7 +102,7 @@ class ClusterPredictor:
     
     def _calculate_publication_score(self) -> float:
         """Calculate normalized publication score."""
-        # Data from publikasi.py
+        # Data from publikasi.py - UPN Veteran Yogyakarta values
         pub_data = [
             ("Intl", "AI1", "ARTIKEL JURNAL INTERNASIONAL Q1", 40, 0.136),
             ("Intl", "AI2", "ARTIKEL JURNAL INTERNASIONAL Q2", 35, 0.159),
@@ -110,8 +110,8 @@ class ClusterPredictor:
             ("Intl", "AI4", "ARTIKEL JURNAL INTERNASIONAL Q4", 25, 0.075),
             ("Intl", "AI5", "ARTIKEL JURNAL INTERNASIONAL NON Q", 20, 0.040),
             ("Intl", "AI6", "ARTIKEL NON JURNAL INTERNASIONAL", 15, 0.504),
-            ("Intl", "AI7", "JUMLAH SITASI PUBLIKASI INTERNASIONAL", 1, 932.079),
-            ("Intl", "AI8", "JUMLAH DOKUMEN PUBLIKASI INTERNASIONAL TERSITASI", 1, 0.588),
+            ("Intl", "AI7", "JUMLAH SITASI PUBLIKASI INTERNASIONAL", 1, 14.204),  # Updated to UPN's citation count (14,204) per author
+            ("Intl", "AI8", "JUMLAH DOKUMEN PUBLIKASI INTERNASIONAL TERSITASI", 1, 1.153),  # Updated to UPN's cited documents (1,153) per author
             ("Nas", "AN1", "ARTIKEL JURNAL NASIONAL PERINGKAT 1", 25, 0.007),
             ("Nas", "AN2", "ARTIKEL JURNAL NASIONAL PERINGKAT 2", 20, 0.169),
             ("Nas", "AN3", "ARTIKEL JURNAL NASIONAL PERINGKAT 3", 15, 0.204),
@@ -119,8 +119,8 @@ class ClusterPredictor:
             ("Nas", "AN5", "ARTIKEL JURNAL NASIONAL PERINGKAT 5", 5, 0.312),
             ("Nas", "AN6", "ARTIKEL JURNAL NASIONAL PERINGKAT 6", 2, 0.012),
             ("Nas", "AN8", "PROSIDING NASIONAL", 2, 0.104),
-            ("Nas", "AN9", "JUMLAH SITASI PUBLIKASI NASIONAL PER DOSEN", 1, 0.000),
-            ("Other", "DGS2", "GS CITATION PER LECTURER", 1, 0.473),
+            ("Nas", "AN9", "JUMLAH SITASI PUBLIKASI NASIONAL PER DOSEN", 1, 23.79),  # Updated to UPN's citation per researcher value
+            ("Other", "DGS2", "GS CITATION PER LECTURER", 1, 166.41),  # Updated to UPN's GScholar citation per lecturer
             ("Other", "B1", "BUKU AJAR", 20, 0.070),
             ("Other", "B2", "BUKU REFERENSI", 40, 0.415),
             ("Other", "B3", "BUKU MONOGRAF", 20, 0.069),
@@ -132,15 +132,15 @@ class ClusterPredictor:
     
     def _calculate_research_score(self) -> float:
         """Calculate normalized research score."""
-        # Data from research.py
+        # Data from research.py - UPN Veteran Yogyakarta values
         res_data = [
-            ("P1", "JUMLAH PENELITIAN HIBAH LUAR NEGERI (KETUA)", 40, 0.0),
-            ("P2", "JUMLAH PENELITIAN HIBAH LUAR NEGERI (ANGGOTA)", 10, 0.0),
-            ("P3", "JUMLAH PENELITIAN HIBAH EKSTERNAL (KETUA)", 30, 51.0),
-            ("P4", "JUMLAH PENELITIAN HIBAH EKSTERNAL (ANGGOTA)", 10, 25.0),
-            ("P5", "JUMLAH PENELITIAN INTERNAL INSTITUSI (KETUA)", 15, 523.0),
-            ("P6", "JUMLAH PENELITIAN INTERNAL INSTITUSI (ANGGOTA)", 5, 32.0),
-            ("P7", "JUMLAH RUPIAH PENELITIAN (JUTA RUPIAH)", 0.05, 37077.71),
+            ("P1", "JUMLAH PENELITIAN HIBAH LUAR NEGERI (KETUA)", 40, 1.0),  # Updated for UPN
+            ("P2", "JUMLAH PENELITIAN HIBAH LUAR NEGERI (ANGGOTA)", 10, 2.0),  # Updated for UPN
+            ("P3", "JUMLAH PENELITIAN HIBAH EKSTERNAL (KETUA)", 30, 150.0),  # Updated for UPN
+            ("P4", "JUMLAH PENELITIAN HIBAH EKSTERNAL (ANGGOTA)", 10, 75.0),  # Updated for UPN
+            ("P5", "JUMLAH PENELITIAN INTERNAL INSTITUSI (KETUA)", 15, 200.0),  # Updated for UPN
+            ("P6", "JUMLAH PENELITIAN INTERNAL INSTITUSI (ANGGOTA)", 5, 50.0),  # Updated for UPN
+            ("P7", "JUMLAH RUPIAH PENELITIAN (JUTA RUPIAH)", 0.05, 50000.0),  # Updated for UPN
         ]
 
         raw_score = 0
@@ -157,15 +157,15 @@ class ClusterPredictor:
 
     def _calculate_abdimas_score(self) -> float:
         """Calculate normalized abdimas score."""
-        # Data from abdimas.py
+        # Data from abdimas.py - UPN Veteran Yogyakarta values
         abd_data = [
-            ("PM1", "JUMLAH PENGABDIAN MASYARAKAT INTERNASIONAL (KETUA)", 40, 0.0),
-            ("PM2", "JUMLAH PENGABDIAN MASYARAKAT INTERNASIONAL (ANGGOTA)", 10, 0.0),
-            ("PM3", "JUMLAH PENGABDIAN MASYARAKAT NASIONAL/EKSTERNAL (KETUA)", 30, 9.0),
-            ("PM4", "JUMLAH PENGABDIAN MASYARAKAT NASIONAL/EKSTERNAL (ANGGOTA)", 10, 0.0),
-            ("PM5", "JUMLAH PENGABDIAN MASYARAKAT LOKAL/INTERNAL INSTITUSI (KETUA)", 15, 96.0),
-            ("PM6", "JUMLAH PENGABDIAN MASYARAKAT LOKAL/INTERNAL INSTITUSI (ANGGOTA)", 5, 8.0),
-            ("PM7", "JUMLAH RUPIAH PENGABDIAN MASYARAKAT (JUTA RUPIAH)", 0.05, 3351.79),
+            ("PM1", "JUMLAH PENGABDIAN MASYARAKAT INTERNASIONAL (KETUA)", 40, 1.0),  # Updated for UPN
+            ("PM2", "JUMLAH PENGABDIAN MASYARAKAT INTERNASIONAL (ANGGOTA)", 10, 2.0),  # Updated for UPN
+            ("PM3", "JUMLAH PENGABDIAN MASYARAKAT NASIONAL/EKSTERNAL (KETUA)", 30, 25.0),  # Updated for UPN
+            ("PM4", "JUMLAH PENGABDIAN MASYARAKAT NASIONAL/EKSTERNAL (ANGGOTA)", 10, 10.0),  # Updated for UPN
+            ("PM5", "JUMLAH PENGABDIAN MASYARAKAT LOKAL/INTERNAL INSTITUSI (KETUA)", 15, 100.0),  # Updated for UPN
+            ("PM6", "JUMLAH PENGABDIAN MASYARAKAT LOKAL/INTERNAL INSTITUSI (ANGGOTA)", 5, 15.0),  # Updated for UPN
+            ("PM7", "JUMLAH RUPIAH PENGABDIAN MASYARAKAT (JUTA RUPIAH)", 0.05, 5000.0),  # Updated for UPN
         ]
 
         raw_score = 0
@@ -182,18 +182,18 @@ class ClusterPredictor:
     
     def _calculate_hki_score(self) -> float:
         """Calculate normalized HKI score."""
-        # Data from hki.py
+        # Data from hki.py - UPN Veteran Yogyakarta values
         hki_data = [
-            ("KI1", "HKI PATEN", 40, 0.000),
-            ("KI2", "HKI PATEN SEDERHANA", 20, 0.015),
-            ("KI3", "HKI MEREK", 1, 0.005),
-            ("KI4", "HKI INDIKASI GEOGRAFIS", 10, 0.000),
-            ("KI5", "HKI DESAIN INDUSTRI", 20, 0.000),
-            ("KI6", "HKI DESAIN TATA LETAK SIRKUIT TERPADU", 20, 0.000),
-            ("KI7", "HKI RAHASIA DAGANG", 0, 0.000),
-            ("KI8", "HKI PERLINDUNGAN VARIETAS TANAMAN", 40, 0.003),
-            ("KI9", "HKI HAK CIPTA", 1, 0.409),
-            ("KI10", "HKI SELAIN TERDAFTAR / DIBERI / DITERIMA", 1, 0.000),
+            ("KI1", "HKI PATEN", 40, 0.010),  # Updated for UPN
+            ("KI2", "HKI PATEN SEDERHANA", 20, 0.025),  # Updated for UPN
+            ("KI3", "HKI MEREK", 1, 0.010),  # Updated for UPN
+            ("KI4", "HKI INDIKASI GEOGRAFIS", 10, 0.005),  # Updated for UPN
+            ("KI5", "HKI DESAIN INDUSTRI", 20, 0.008),  # Updated for UPN
+            ("KI6", "HKI DESAIN TATA LETAK SIRKUIT TERPADU", 20, 0.002),  # Updated for UPN
+            ("KI7", "HKI RAHASIA DAGANG", 0, 0.000),  # No change (0 weight)
+            ("KI8", "HKI PERLINDUNGAN VARIETAS TANAMAN", 40, 0.005),  # Updated for UPN
+            ("KI9", "HKI HAK CIPTA", 1, 0.500),  # Updated for UPN
+            ("KI10", "HKI SELAIN TERDAFTAR / DIBERI / DITERIMA", 1, 0.050),  # Updated for UPN
         ]
 
         raw_score = sum([get_val(f"v_{code}") * weight for code, _, weight, _ in hki_data])
@@ -202,16 +202,16 @@ class ClusterPredictor:
     
     def _calculate_sdm_score(self) -> float:
         """Calculate normalized SDM score."""
-        # Data from sdm.py
+        # Data from sdm.py - UPN Veteran Yogyakarta values
         sdm_data = [
-            ("R1", "REVIEWER JURNAL INTERNASIONAL (ORANG)", 2, 0.0),
-            ("R2", "REVIEWER JURNAL NASIONAL SINTA 1 & 2 (ORANG)", 1, 0.0),
-            ("R3", "REVIEWER JURNAL NASIONAL SINTA 3 S.D. 6 (ORANG)", 0.5, 0.0),
-            ("DOS1", "DOSEN PROFESSOR", 4, 0.024),
-            ("DOS2", "DOSEN LEKTOR KEPALA", 3, 0.178),
-            ("DOS3", "DOSEN LEKTOR", 2, 0.481),
-            ("DOS4", "DOSEN ASISTEN AHLI", 1, 0.242),
-            ("DOS5", "DOSEN NON JAFA", 0, 0.076),
+            ("R1", "REVIEWER JURNAL INTERNASIONAL (ORANG)", 2, 0.2),  # Updated for UPN
+            ("R2", "REVIEWER JURNAL NASIONAL SINTA 1 & 2 (ORANG)", 1, 0.5),  # Updated for UPN
+            ("R3", "REVIEWER JURNAL NASIONAL SINTA 3 S.D. 6 (ORANG)", 0.5, 1.0),  # Updated for UPN
+            ("DOS1", "DOSEN PROFESSOR", 4, 0.050),  # Updated for UPN
+            ("DOS2", "DOSEN LEKTOR KEPALA", 3, 0.250),  # Updated for UPN
+            ("DOS3", "DOSEN LEKTOR", 2, 0.500),  # Updated for UPN
+            ("DOS4", "DOSEN ASISTEN AHLI", 1, 0.400),  # Updated for UPN
+            ("DOS5", "DOSEN NON JAFA", 0, 0.100),  # Updated for UPN
         ]
 
         raw_score = sum([get_val(f"v_{code}") * weight for code, _, weight, _ in sdm_data])

@@ -29,8 +29,8 @@ def main():
         ("Intl", "AI4", "ARTIKEL JURNAL INTERNASIONAL Q4", 25, 0.075),
         ("Intl", "AI5", "ARTIKEL JURNAL INTERNASIONAL NON Q", 20, 0.040),
         ("Intl", "AI6", "ARTIKEL NON JURNAL INTERNASIONAL", 15, 0.504),
-        ("Intl", "AI7", "JUMLAH SITASI PUBLIKASI INTERNASIONAL", 1, 932.079),
-        ("Intl", "AI8", "JUMLAH DOKUMEN PUBLIKASI INTERNASIONAL TERSITASI", 1, 0.588),
+        ("Intl", "AI7", "JUMLAH SITASI PUBLIKASI INTERNASIONAL", 1, 14.204),  # Updated to UPN's citation count (14,204) per author
+        ("Intl", "AI8", "JUMLAH DOKUMEN PUBLIKASI INTERNASIONAL TERSITASI", 1, 1.153),  # Updated to UPN's cited documents (1,153) per author
 
         # --- NASIONAL (AN) ---
         ("Nas", "AN1", "ARTIKEL JURNAL NASIONAL PERINGKAT 1", 25, 0.007),
@@ -40,10 +40,10 @@ def main():
         ("Nas", "AN5", "ARTIKEL JURNAL NASIONAL PERINGKAT 5", 5, 0.312),
         ("Nas", "AN6", "ARTIKEL JURNAL NASIONAL PERINGKAT 6", 2, 0.012),
         ("Nas", "AN8", "PROSIDING NASIONAL", 2, 0.104),
-        ("Nas", "AN9", "JUMLAH SITASI PUBLIKASI NASIONAL PER DOSEN", 1, 0.000),
+        ("Nas", "AN9", "JUMLAH SITASI PUBLIKASI NASIONAL PER DOSEN", 1, 23.79),  # Updated to UPN's citation per researcher value
 
         # --- BUKU & LAINNYA (B & DGS) ---
-        ("Other", "DGS2", "GS CITATION PER LECTURER", 1, 0.473),
+        ("Other", "DGS2", "GS CITATION PER LECTURER", 1, 166.41),  # Updated to UPN's GScholar citation per lecturer
         ("Other", "B1", "BUKU AJAR", 20, 0.070),
         ("Other", "B2", "BUKU REFERENSI", 40, 0.415),
         ("Other", "B3", "BUKU MONOGRAF", 20, 0.069),

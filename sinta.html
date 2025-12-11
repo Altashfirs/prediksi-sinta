@@ -1,0 +1,845 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SINTA - Science and Technology Index</title>
+    <meta name="description" content="SINTA | Science and Technology Index">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    <!-- CSS -->
+    <link rel="shortcut icon" type="image/png" href="https://sinta.kemdiktisaintek.go.id/public/assets/img/favicon_sinta.png" />
+    <link rel="stylesheet" href="https://sinta.kemdiktisaintek.go.id/public/assets/css/bootstrap.min.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://sinta.kemdiktisaintek.go.id/public/assets/css/bootstrap-litera.min.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://sinta.kemdiktisaintek.go.id/public/assets/css/select2.min.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://sinta.kemdiktisaintek.go.id/public/assets/css/select2-bootstrap4.min.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://sinta.kemdiktisaintek.go.id/public/assets/css/elusive-icons.min.css">
+    <link rel="stylesheet" href="https://sinta.kemdiktisaintek.go.id/public/assets/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="https://sinta.kemdiktisaintek.go.id/public/assets/css/animate.css">
+    <link rel="stylesheet" href="https://sinta.kemdiktisaintek.go.id/public/assets/css/morphext.css">
+    <link rel="stylesheet" href="https://sinta.kemdiktisaintek.go.id/public/assets/css/main.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://sinta.kemdiktisaintek.go.id/public/assets/css/flag-icons.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://sinta.kemdiktisaintek.go.id/public/assets/css/responsive.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://sinta.kemdiktisaintek.go.id/public/assets/plugin/datamaps/datamaps.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://sinta.kemdiktisaintek.go.id/public/assets/plugin/autocomplete/jquery.autocomplete.css" crossorigin="anonymous" />
+    <!-- <link rel="stylesheet" href="https://sinta.kemdiktisaintek.go.id/public/assets/css/autocomplete.css" crossorigin="anonymous" /> -->
+    <link rel="stylesheet" href="https://sinta.kemdiktisaintek.go.id/public/author/styles/alert.css">
+
+    <link rel="stylesheet" href="//unpkg.com/bootstrap-select@1.12.4/dist/css/bootstrap-select.min.css" type="text/css" />
+    <link rel="stylesheet" href="//unpkg.com/bootstrap-select-country@4.0.0/dist/css/bootstrap-select-country.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" type="text/css" />
+
+    <style type="text/css">
+        #mynetwork {
+            width: auto;
+            height: 600px;
+            border: 1px solid lightgray;
+        }
+
+        
+    </style>
+
+    <!-- <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" /> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ttskch/select2-bootstrap4-theme@x.x.x/dist/select2-bootstrap4.min.css">
+
+
+</head>
+
+<body>
+
+    
+    
+        
+<div class="row no-gutters">
+    <div class="col-md-8">
+
+        <div class="navi animate__animated animate__slideInDown"  >
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <a class="navbar-brand" href="https://sinta.kemdiktisaintek.go.id">
+            <img src="https://sinta.kemdiktisaintek.go.id/public/assets/img/brand_sinta.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+            <span class="brand-text">SINTA</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="https://sinta.kemdiktisaintek.go.id"><i class="el el-home-alt"></i></a>
+                </li>
+                
+                <!-- <li class="nav-item">
+                                <a class="nav-link" href="#!">About</a>
+                            </li> -->
+                <li class="nav-item">
+                    <a class="nav-link" href="https://sinta.kemdiktisaintek.go.id/authors">Author</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://sinta.kemdiktisaintek.go.id/subjects">Subjects</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Affiliations
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="https://sinta.kemdiktisaintek.go.id/affiliations">Affiliations</a>
+                        <a class="dropdown-item" href="https://sinta.kemdiktisaintek.go.id/departments">Departments</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Sources
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="https://sinta.kemdiktisaintek.go.id/journals">Journal</a>
+                        <a class="dropdown-item d-none" href="https://sinta.kemdiktisaintek.go.id/books">Book</a>
+                        <a class="dropdown-item d-none" href="https://sinta.kemdiktisaintek.go.id/iprs">IPR</a>
+                        <a class="dropdown-item d-none" href="https://sinta.kemdiktisaintek.go.id/researches">Researches</a>
+                        <a class="dropdown-item d-none" href="https://sinta.kemdiktisaintek.go.id/comservices">Comunity Services</a>
+                        <a class="dropdown-item d-none" href="https://sinta.kemdiktisaintek.go.id/scopus">Scopus Documents</a>
+                        <a class="dropdown-item" href="https://sinta.kemdiktisaintek.go.id/home/checkquartilescopus">Check Quart. Scopus</a>
+                        <a class="dropdown-item d-none" href="https://sinta.kemdiktisaintek.go.id/google">GS Documents</a>
+                        
+                    </div>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="https://sinta.kemdiktisaintek.go.id/home/faq">FAQ</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="https://sinta.kemdiktisaintek.go.id/wcu">WCU</a>
+                </li>
+                
+                                    <li class="nav-item">
+                        <a class="nav-link" href="https://sinta.kemdiktisaintek.go.id/logins/registration">Registration</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://sinta.kemdiktisaintek.go.id/logins">Login</a>
+                    </li>
+                            </ul>
+        </div>
+    </nav>
+</div>
+
+        <div class="content">
+            <div class="content-box">
+                <div class="univ-profile">
+                    <div class="bg-univ" style="background-image: url('https://sinta.kemdiktisaintek.go.id/public/assets/img/bg-univ.jpg');">
+                        <div class="univ-name">
+                            <img src="/authorverification/public/images/affiliations/526.jpg" onerror="this.onerror=null;this.src='https://sinta.kemdiktisaintek.go.id/public/assets/img/author-small.png';" class="img-fluid round-corner mb-4 univ-logo-main" alt="">
+                            <h3><a href="#!">Universitas Pembangunan Nasional Veteran Yogyakarta</a></h3>
+                            <div class="meta-profile">
+                                <span class="affil-abbrev mr-3"><i class="zmdi zmdi-label mr-1"></i> -</span>
+                                <a href="#!" class="affil-loc"><i class="el el-map-marker mr-1"></i> KAB. SLEMAN - DAERAH ISTIMEWA YOGYAKARTA, ID</a>
+                                <span class="mr-3 d-none d-sm-block"></span>
+                                <a href="#!" class="affil-code"><i class="el el-certificate mr-1"></i> ID : 526 <i class="zmdi zmdi-code ml-2"></i> CODE : 001062</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row stat-card affil-profile-card mb-6">
+                    <div class="col-md mb-2">
+                        <div class="card bg-card-default">
+                            <div class="card-body">
+                                <div class="stat-arrow"><a href="https://sinta.kemdiktisaintek.go.id/affiliations/authors/526"><i class="el el-circle-arrow-right"></i></a></div>
+                                <div class="stat-ic"><i class="el el-group-alt"></i></div>
+                                <div class="stat-num">613</div>
+                                <div class="stat-text">Authors</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md mb-2">
+                        <div class="card bg-card-red">
+                            <div class="card-body">
+                                <div class="stat-arrow"><a href="https://sinta.kemdiktisaintek.go.id/affiliations/departments/526/001062"><i class="el el-circle-arrow-right"></i></a></div>
+                                <div class="stat-ic"><i class="zmdi zmdi-balance"></i></div>
+                                <div class="stat-num">35</div>
+                                <div class="stat-text">Departments</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md mb-2">
+                        <div class="card bg-card-orange">
+                            <div class="card-body">
+                                <div class="stat-arrow"><a href="https://sinta.kemdiktisaintek.go.id/journals/index/526"><i class="el el-circle-arrow-right"></i></a></div>
+                                <div class="stat-ic"><i class="zmdi zmdi-book"></i></div>
+                                <div class="stat-num">16</div>
+                                <div class="stat-text">Journals</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="stat-profile">
+                    <div class="row no-gutters">
+                        <div class="pr-ic ic-blue col-2 col-lg-1 col-sm-1 col-md-2 text-center pt-2"><i class="el el-user"></i></div>
+                        <div class="col-4 col-lg col-sm-4 col-md-4">
+                            <div class="pr-num">243.162</div>
+                            <div class="pr-txt">SINTA Score Overall</div>
+                        </div>
+                        <div class="pr-ic ic-blue col-2 col-lg-1 col-sm-1 col-md-2 text-center pt-2"><i class="zmdi zmdi-graduation-cap"></i></div>
+                        <div class="col-4 col-lg col-sm-4 col-md-4">
+                            <div class="pr-num">89.649</div>
+                            <div class="pr-txt">SINTA Score 3Yr</div>
+                        </div>
+
+                        <div class="pr-ic ic-blue col-2 col-lg-1 col-sm-1 col-md-2 text-center pt-2"><i class="el el-user"></i></div>
+                        <div class="col-4 col-lg col-sm-4 col-md-4">
+                            <div class="pr-num">411</div>
+                            <div class="pr-txt">SINTA Score Productivity</div>
+                        </div>
+                        <div class="pr-ic ic-blue col-2 col-lg-1 col-sm-1 col-md-2 text-center pt-2"><i class="zmdi zmdi-graduation-cap"></i></div>
+                        <div class="col-4 col-lg col-sm-4 col-md-4">
+                            <div class="pr-num">152</div>
+                            <div class="pr-txt">SINTA Score Productivity 3Yr</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row no-gutters">
+                    <div class="col-md-1 pt-3 pl-2">
+                        <img src="https://sinta.kemdiktisaintek.go.id/public/assets/img/brand_sinta.png" width="50" height="50" class="d-inline-block align-top" alt="" loading="lazy">
+                    </div>
+                    <div class="col-md">
+                        <nav class="profile-nav nav link-data">
+                            <a class="nav-item nav-link active" href="https://sinta.kemdiktisaintek.go.id/affiliations/profile/526">Articles</a>
+                            <a class="nav-item nav-link " href="https://sinta.kemdiktisaintek.go.id/affiliations/profile/526/?view=researches">Researches</a>
+                            <a class="nav-item nav-link " href="https://sinta.kemdiktisaintek.go.id/affiliations/profile/526/?view=services">Community Services</a>
+                            <a class="nav-item nav-link " href="https://sinta.kemdiktisaintek.go.id/affiliations/profile/526/?view=iprs">IPRs</a>
+                            <a class="nav-item nav-link " href="https://sinta.kemdiktisaintek.go.id/affiliations/profile/526/?view=books">Books</a>
+                            <a class="nav-item nav-link " href="https://sinta.kemdiktisaintek.go.id/affiliations/profile/526/?view=networks">Networks</a>
+                            <a class="nav-item nav-link " href="https://sinta.kemdiktisaintek.go.id/affiliations/profile/526/?view=matrics">Metrics</a>
+                            								<a class="nav-item nav-link " href="https://sinta.kemdiktisaintek.go.id/affiliations/profile/526/?view=matricscluster2026">Metrics Cluster</a>
+								<!-- <a class="nav-item nav-link " href="https://sinta.kemdiktisaintek.go.id/affiliations/profile/526/?view=arts">Arts</a> -->
+													</nav>
+                    </div>
+                    <div class="col-md-3 bg-card-orange bg-warning wcu-menu">
+                        <a class="text-white " href="https://sinta.kemdiktisaintek.go.id/affiliations/wcuanalysis/526"> <i class="el el-globe mr-1"></i> WCU Analysis</a>
+                    </div>
+                </div>
+                    
+<div class="profile-article">
+    <div class="stat-chart mt-1 mb-4 text-center">
+        <small>
+            Latest number of publications
+        </small>
+        <div id="scopus-chart-articles" style="height: 120px;"></div>
+    </div>
+
+    <ul class="article-tab mt-1 mb-3">
+    <li>
+        <a href="https://sinta.kemdiktisaintek.go.id/affiliations/profile/526/?view=scopus" class="active">Scopus</a>
+    </li>
+    <li class="d-none">
+        <a href="https://sinta.kemdiktisaintek.go.id/affiliations/profile/526/?view=wos" class="">Web of Science</a>
+    </li>
+    <li>
+        <a href="https://sinta.kemdiktisaintek.go.id/affiliations/profile/526/?view=garuda" class="">Garuda</a>
+    </li>
+    <li>
+        <a href="https://sinta.kemdiktisaintek.go.id/affiliations/profile/526/?view=googlescholar" class="">Google Scholar</a>
+    </li>
+    <!-- <li>
+        <a href="https://sinta.kemdiktisaintek.go.id/affiliations/profile/526/?view=rama" class="">RAMA</a>
+    </li> -->
+</ul>    
+    
+    
+    <a href="https://sinta.kemdiktisaintek.go.id/affiliations/scopusanalysis/526" class="btn btn-warning text-white mb-3"><i class="zmdi zmdi-chart"></i> Scopus Analysis</a>
+
+            
+                    <div class="ar-list-item mb-5">
+                <div class="ar-title">
+                    <a href="https://www.scopus.com/record/display.uri?eid=2-s2.0-105012182856&origin=resultslist" target="_blank">Analysis of the Impact of High-Performance Water-Based Mud (HPWBM) Invasion on the Physical Characteristics of Reservoir Rocks and Gas Well Production Enhancement through Treatment with Novel Stimulation Chemicals: Laboratory Study and Nodal Prediction                    </a>
+                </div>
+                <div class="ar-meta">
+                    
+                    <a class="ar-quartile" href="#!" style="margin-left: 0px;"><i class="zmdi zmdi-chart-donut"></i> Q3 Journal</a>
+                    <a href="https://www.scopus.com/sourceid/19900195068" class="ar-pub" target="_blank"><i class="el el-book"></i>Iop Conference Series Earth and Environmental Science</a>
+                    <br>
+                    <a href="#!">Creator : Prastya Ningrum E.N.</a>
+                    
+                </div>
+                <div class="ar-meta">
+                    <a class="ar-year" href="#!"><i class="zmdi zmdi-calendar"></i> 2025</a>
+                    <a class="ar-cited" href="#!"><i class="zmdi zmdi-comment-list"></i> 0 cited</a>
+                </div>
+            </div>
+                    <div class="ar-list-item mb-5">
+                <div class="ar-title">
+                    <a href="https://www.scopus.com/record/display.uri?eid=2-s2.0-105000958833&origin=resultslist" target="_blank">A comprehensive insight into the role of synthesis methods on the properties and performance of bio-derived heterogeneous catalysts for biodiesel production                    </a>
+                </div>
+                <div class="ar-meta">
+                    
+                    <a class="ar-quartile" href="#!" style="margin-left: 0px;"><i class="zmdi zmdi-chart-donut"></i> Q1 Journal</a>
+                    <a href="https://www.scopus.com/sourceid/21100831009" class="ar-pub" target="_blank"><i class="el el-book"></i>Molecular Catalysis</a>
+                    <br>
+                    <a href="#!">Creator : Amenaghawon A.N.</a>
+                    
+                </div>
+                <div class="ar-meta">
+                    <a class="ar-year" href="#!"><i class="zmdi zmdi-calendar"></i> 2025</a>
+                    <a class="ar-cited" href="#!"><i class="zmdi zmdi-comment-list"></i> 6 cited</a>
+                </div>
+            </div>
+                    <div class="ar-list-item mb-5">
+                <div class="ar-title">
+                    <a href="https://www.scopus.com/record/display.uri?eid=2-s2.0-85217673679&origin=resultslist" target="_blank">GREEN BUSINESS STRATEGIES: LINKING SUSTAINABLE DEVELOPMENT, GREEN LEADERSHIP, SOCIAL RETURN ON INVESTMENT, AND SOCIAL INNOVATION IN INDONESIA                    </a>
+                </div>
+                <div class="ar-meta">
+                    
+                    <a class="ar-quartile" href="#!" style="margin-left: 0px;"><i class="zmdi zmdi-chart-donut"></i> Q3 Journal</a>
+                    <a href="https://www.scopus.com/sourceid/21101201902" class="ar-pub" target="_blank"><i class="el el-book"></i>Journal of Lifestyle and SDG'S Review</a>
+                    <br>
+                    <a href="#!">Creator : Sukasmanto </a>
+                    
+                </div>
+                <div class="ar-meta">
+                    <a class="ar-year" href="#!"><i class="zmdi zmdi-calendar"></i> 2025</a>
+                    <a class="ar-cited" href="#!"><i class="zmdi zmdi-comment-list"></i> 0 cited</a>
+                </div>
+            </div>
+                    <div class="ar-list-item mb-5">
+                <div class="ar-title">
+                    <a href="https://www.scopus.com/record/display.uri?eid=2-s2.0-105019535203&origin=resultslist" target="_blank">Performance: Trust, efficacy, and job satisfaction as mediators                    </a>
+                </div>
+                <div class="ar-meta">
+                    
+                    <a class="ar-quartile" href="#!" style="margin-left: 0px;"><i class="zmdi zmdi-chart-donut"></i> Q2 Journal</a>
+                    <a href="https://www.scopus.com/sourceid/21100898012" class="ar-pub" target="_blank"><i class="el el-book"></i>SA Journal of Human Resource Management</a>
+                    <br>
+                    <a href="#!">Creator : Utomo H.J.N.</a>
+                    
+                </div>
+                <div class="ar-meta">
+                    <a class="ar-year" href="#!"><i class="zmdi zmdi-calendar"></i> 2025</a>
+                    <a class="ar-cited" href="#!"><i class="zmdi zmdi-comment-list"></i> 0 cited</a>
+                </div>
+            </div>
+                    <div class="ar-list-item mb-5">
+                <div class="ar-title">
+                    <a href="https://www.scopus.com/record/display.uri?eid=2-s2.0-105006814729&origin=resultslist" target="_blank">Effectiveness of pre-emergence herbicide imazethapyr and post-emergence herbicide fenoxaprop-p-ethyl on weed management and flower yield in marigold (Tagetes erecta L.)                    </a>
+                </div>
+                <div class="ar-meta">
+                    
+                    <a class="ar-quartile" href="#!" style="margin-left: 0px;"><i class="zmdi zmdi-chart-donut"></i> Q2 Journal</a>
+                    <a href="https://www.scopus.com/sourceid/21101057630" class="ar-pub" target="_blank"><i class="el el-book"></i>International Journal of Innovative Research and Scientific Studies</a>
+                    <br>
+                    <a href="#!">Creator : Abdul Rizal A.Z.</a>
+                    
+                </div>
+                <div class="ar-meta">
+                    <a class="ar-year" href="#!"><i class="zmdi zmdi-calendar"></i> 2025</a>
+                    <a class="ar-cited" href="#!"><i class="zmdi zmdi-comment-list"></i> 0 cited</a>
+                </div>
+            </div>
+                    <div class="ar-list-item mb-5">
+                <div class="ar-title">
+                    <a href="https://www.scopus.com/record/display.uri?eid=2-s2.0-105000003050&origin=resultslist" target="_blank">The TOE-resource base nexus: Unpacking drivers of green information technology adoption among SMEs in Indonesia                    </a>
+                </div>
+                <div class="ar-meta">
+                    
+                    <a class="ar-quartile" href="#!" style="margin-left: 0px;"><i class="zmdi zmdi-chart-donut"></i> no-Q Journal</a>
+                    <a href="https://www.scopus.com/sourceid/21101282616" class="ar-pub" target="_blank"><i class="el el-book"></i>Sustainable Advanced Manufacturing and Logistics in Asean</a>
+                    <br>
+                    <a href="#!">Creator : Religia Y.</a>
+                    
+                </div>
+                <div class="ar-meta">
+                    <a class="ar-year" href="#!"><i class="zmdi zmdi-calendar"></i> 2025</a>
+                    <a class="ar-cited" href="#!"><i class="zmdi zmdi-comment-list"></i> 0 cited</a>
+                </div>
+            </div>
+                    <div class="ar-list-item mb-5">
+                <div class="ar-title">
+                    <a href="https://www.scopus.com/record/display.uri?eid=2-s2.0-105021412378&origin=resultslist" target="_blank">“URGENSI” Platform Development to Enhance Disaster Preparedness Among the Elderly                    </a>
+                </div>
+                <div class="ar-meta">
+                    
+                    <a class="ar-quartile" href="#!" style="margin-left: 0px;"><i class="zmdi zmdi-chart-donut"></i> Q3 Journal</a>
+                    <a href="https://www.scopus.com/sourceid/21100795900" class="ar-pub" target="_blank"><i class="el el-book"></i>E3s Web of Conferences</a>
+                    <br>
+                    <a href="#!">Creator : Yuliwulandari R.</a>
+                    
+                </div>
+                <div class="ar-meta">
+                    <a class="ar-year" href="#!"><i class="zmdi zmdi-calendar"></i> 2025</a>
+                    <a class="ar-cited" href="#!"><i class="zmdi zmdi-comment-list"></i> 0 cited</a>
+                </div>
+            </div>
+                    <div class="ar-list-item mb-5">
+                <div class="ar-title">
+                    <a href="https://www.scopus.com/record/display.uri?eid=2-s2.0-105012302923&origin=resultslist" target="_blank">Robust Classification of Beef and Pork Images Using EfficientNet B0 Feature Extraction and Ensemble Learning with Visual Interpretation                    </a>
+                </div>
+                <div class="ar-meta">
+                    
+                    <a class="ar-quartile" href="#!" style="margin-left: 0px;"><i class="zmdi zmdi-chart-donut"></i> Q2 Journal</a>
+                    <a href="https://www.scopus.com/sourceid/21101037310" class="ar-pub" target="_blank"><i class="el el-book"></i>Register Jurnal Ilmiah Teknologi Sistem Informasi</a>
+                    <br>
+                    <a href="#!">Creator : Akbar A.T.</a>
+                    
+                </div>
+                <div class="ar-meta">
+                    <a class="ar-year" href="#!"><i class="zmdi zmdi-calendar"></i> 2025</a>
+                    <a class="ar-cited" href="#!"><i class="zmdi zmdi-comment-list"></i> 1 cited</a>
+                </div>
+            </div>
+                    <div class="ar-list-item mb-5">
+                <div class="ar-title">
+                    <a href="https://www.scopus.com/record/display.uri?eid=2-s2.0-85216665149&origin=resultslist" target="_blank">A new and effective organic imidazole derivative inhibitor for carbon steel protection in 1M HCl medium: electrochemical analysis and computer simulation                    </a>
+                </div>
+                <div class="ar-meta">
+                    
+                    <a class="ar-quartile" href="#!" style="margin-left: 0px;"><i class="zmdi zmdi-chart-donut"></i> Q3 Journal</a>
+                    <a href="https://www.scopus.com/sourceid/13055" class="ar-pub" target="_blank"><i class="el el-book"></i>Indian Chemical Engineer</a>
+                    <br>
+                    <a href="#!">Creator : Barrahi A.</a>
+                    
+                </div>
+                <div class="ar-meta">
+                    <a class="ar-year" href="#!"><i class="zmdi zmdi-calendar"></i> 2025</a>
+                    <a class="ar-cited" href="#!"><i class="zmdi zmdi-comment-list"></i> 6 cited</a>
+                </div>
+            </div>
+                    <div class="ar-list-item mb-5">
+                <div class="ar-title">
+                    <a href="https://www.scopus.com/record/display.uri?eid=2-s2.0-105010812917&origin=resultslist" target="_blank">Optimizing U-Net Architecture Using Differential Evolution for Brain Tumor Segmentation                    </a>
+                </div>
+                <div class="ar-meta">
+                    
+                    <a class="ar-quartile" href="#!" style="margin-left: 0px;"><i class="zmdi zmdi-chart-donut"></i> Q3 Journal</a>
+                    <a href="https://www.scopus.com/sourceid/25674" class="ar-pub" target="_blank"><i class="el el-book"></i>Lecture Notes in Computer Science</a>
+                    <br>
+                    <a href="#!">Creator : Saifullah S.</a>
+                    
+                </div>
+                <div class="ar-meta">
+                    <a class="ar-year" href="#!"><i class="zmdi zmdi-calendar"></i> 2025</a>
+                    <a class="ar-cited" href="#!"><i class="zmdi zmdi-comment-list"></i> 1 cited</a>
+                </div>
+            </div>
+        
+                    <a href="https://sinta.kemdiktisaintek.go.id/logins" class="btn btn-info btn-sm">View more ...</a>
+            </div>        
+                </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 d-none d-md-block d-lg-block d-xl-block decor animate__animated animate__slideInRight">
+        <div class="side-top row">
+            <div class="col-md-4">
+                Get More with SINTA Insight
+            </div>
+            <div class="col-md-8">
+                <a name="" id="" class="btn btn-warning btn-block btn-md" href="https://sinta.kemdiktisaintek.go.id/insight" role="button">Go to Insight</a>
+            </div>
+        </div>
+        <div class="side-content">
+<!--            <div class="text-center">
+                <a href="https://sinta.kemdiktisaintek.go.id/affiliations/scopusanalysis/526" class="btn btn-warning btn-sm text-white">&nbsp;&nbsp;Scopus Analysis&nbsp;&nbsp;</a>
+                <a href="https://sinta.kemdiktisaintek.go.id/affiliations/wcuanalysis/526" class="btn btn-danger btn-sm text-white">&nbsp;&nbsp;WCU Analysis&nbsp;&nbsp;</a>
+                <a href="https://sinta.kemdiktisaintek.go.id/affiliations/diktianalysis/526" class="btn btn-info btn-sm text-white">&nbsp;&nbsp;Dikti Analysis&nbsp;&nbsp;</a>
+                <br>
+            </div>-->
+            <div class="card mt-3 bg-card-simple">
+                <div class="card-body">
+
+                    
+
+                    <div class="row no-gutters">
+                        <div class="col-md text-center">
+                            Scopus <br>
+                            Documents Quartile
+                            <div id="quartile-pie" style="height: 200px;"></div>
+                        </div>
+                        <div class="col-md text-center">
+                            Scopus <br>
+                            Research Output
+                            <div id="research-radar" style="height: 200px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mt-3 bg-card-simple">
+                <div class="card-body">
+                    <table class="table table-borderless table-sm text-center stat-table">
+                        <thead>
+                            <tr>
+                                <th>&nbsp;</th>
+                                <th class="text-warning">Scopus</th>
+                                <th class="text-success">GScholar</th>
+                                <th class="text-primary d-none">WOS</th>
+                                <th class="text-danger">Garuda</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-left" scope="row">Documents</td>
+                                <td class="text-warning">1.772</td>
+                                <td class="text-success">21.076</td>
+                                <td class="text-primary d-none">31</td>
+                                <td class="text-danger">3.418</td>
+                            </tr>
+                            <tr>
+                                <td class="text-left" scope="row">Citation</td>
+                                <td class="text-warning">14.204</td>
+                                <td class="text-success">99.348</td>
+                                <td class="text-primary d-none">156</td>
+                                <td class="text-danger">55</td>
+                            </tr>
+                            <tr>
+                                <td class="text-left" scope="row">Cited Document</td>
+                                <td class="text-warning">1.153</td>
+                                <td class="text-success">9.068</td>
+                                <td class="text-primary d-none">19</td>
+                                <td class="text-danger">35</td>
+                            </tr>
+                            <tr>
+                                <td class="text-left" scope="row">Citation Per Researchers
+                                    <br>
+                                    <small>Divided Lecturer of PDDikti</small>
+                                </td>
+                                <td class="text-warning">23,79</td>
+                                <td class="text-success">166,41</td>
+                                <td class="text-primary d-none">0,26</td>
+                                <td class="text-danger">0,09</td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                    <div class="text-center"><i> <small>Last update :2025-12-08 16:06:16</small></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="d-sm-block d-md-none">
+        <div class="side-content-sm">
+            <!-- Top Affiliations by Publications Scopus -->
+            
+        </div>
+        <div class="side-top-sm row">
+            <div class="col-md-4">
+                Get More with SINTA Insight
+                <br><br>
+            </div>
+            <div class="col-md-8">
+                <a name="" id="" class="btn btn-warning btn-block btn-md" href="https://sinta.kemdiktisaintek.go.id/insight" role="button">Go to Insight</a>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+    
+
+    <!-- JavaScript -->
+    <!-- jQuery first, then others -->
+    <script type="text/javascript" src="https://sinta.kemdiktisaintek.go.id/public/assets/js/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="https://sinta.kemdiktisaintek.go.id/public/assets/js/popper.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://sinta.kemdiktisaintek.go.id/public/assets/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://sinta.kemdiktisaintek.go.id/public/assets/js/select2.full.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://sinta.kemdiktisaintek.go.id/public/assets/js/morphext.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://sinta.kemdiktisaintek.go.id/public/assets/js/echarts/dist/echarts-en.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://sinta.kemdiktisaintek.go.id/public/assets/js/echarts/dist/theme/macarons.js" crossorigin="anonymous"></script>
+    <!-- <script src="https://sinta.kemdiktisaintek.go.id/public/assets/js/jquery.autocomplete.js" crossorigin="anonymous"></script>     -->
+    <script type="text/javascript" src="https://sinta.kemdiktisaintek.go.id/public/assets/plugin/autocomplete/jquery.autocomplete.js" crossorigin="anonymous"></script>
+       
+    <script type="text/javascript" src="https://sinta.kemdiktisaintek.go.id/public/assets/plugin/datamaps/d3.js" charset="utf-8"></script>
+    <script type="text/javascript" src="https://sinta.kemdiktisaintek.go.id/public/assets/plugin/datamaps/topojson.js" charset="utf-8"></script>
+    <script type="text/javascript" src="https://sinta.kemdiktisaintek.go.id/public/assets/plugin/datamaps/datamaps.idn.js" charset="utf-8"></script>
+    <script type="text/javascript" src="https://sinta.kemdiktisaintek.go.id/public/assets/plugin/chartjs/chart.js" charset="utf-8"></script>
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    
+    <script src="//unpkg.com/bootstrap-select@1.12.4/dist/js/bootstrap-select.min.js"></script>
+    <script src="//unpkg.com/bootstrap-select-country@4.0.0/dist/js/bootstrap-select-country.min.js"></script>
+  
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+    <script>
+        setTimeout(function() {
+            $('#alert-notif').fadeOut('fast');
+        }, 3000);
+
+        function show_faq(id){
+            $('#' + id).slideToggle();
+        }
+
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        });
+
+        $('.countrypicker').countrypicker();
+    </script>
+
+    <script>
+        $(document).ready(function(){  
+            $(function () {
+                $('.datepicker-year').datepicker({
+                    autoclose: true,
+                    endDate: new Date(),
+                    format: 'yyyy',
+                    viewMode: "years", 
+                    minViewMode: "years"
+                });
+            });
+
+            $(function () {
+                $('.datepicker-date').datepicker({
+                    todayHighlight: true,
+                    endDate: new Date(),
+                    autoclose: true,
+                    format: 'yyyy-mm-dd',
+                    maxDate: '0'
+                });
+            });
+        });
+    </script>
+	
+	<script>
+        $(function () {
+            $('[data-toggle="popover"]').popover()
+        });
+
+        $('.popover-dismiss').popover({
+            trigger: 'focus'
+        })
+    </script>
+
+        <script>
+    $(document).ready(function() {
+        // based on prepared DOM, initialize echarts instance
+        var quartilePie = echarts.init(document.getElementById('quartile-pie'), 'macarons');
+        optionQ = {
+            tooltip: {
+                trigger: 'item',
+                formatter: '{a} <br/>{b}: {c} ({d}%)'
+            },
+            legend: {
+                show: false,
+                orient: 'vertical',
+                left: 10,
+                top: 34,
+                data: ['Q1', 'Q1', 'Q3', 'Q4', 'No-Q']
+            },
+            grid: {
+                left: 0,
+                top: 0,
+                right: 0,
+                bottom: 0,
+            },
+            series: [{
+                name: 'Quartile',
+                type: 'pie',
+                radius: ['50%', '80%'],
+                avoidLabelOverlap: false,
+                center: ['50%', '50%'],
+                label: {
+                    show: true,
+                    position: 'inside',
+                    formatter: '{b}:{c}'
+                },
+                emphasis: {
+                    label: {
+                        show: true,
+                        fontSize: '11',
+                    }
+                },
+                labelLine: {
+                    show: false
+                },
+                data: [{
+                        value: 222,
+                        name: 'Q1'
+                    },
+                    {
+                        value: 232,
+                        name: 'Q2'
+                    },
+                    {
+                        value: 400,
+                        name: 'Q3'
+                    },
+                    {
+                        value: 636,
+                        name: 'Q4'
+                    },
+                    {
+                        value: 282,
+                        name: 'No-Q'
+                    }
+                ]
+            }]
+        };
+        quartilePie.setOption(optionQ);
+
+        var researchRadar = echarts.init(document.getElementById('research-radar'), 'macarons');
+        optionRadar = {
+            tooltip: {},
+            legend: {
+                show: false
+            },
+            radar: {
+                shape: 'circle',
+                name: {
+                    textStyle: {
+                        fontSize: 9
+                    },
+                },
+                indicator: [{
+                        name: 'Article',
+                        max: 901                    },
+                    {
+                        name: 'Conference',
+                        max: 901                    },
+                    {
+                        name: 'Others',
+                        max: 901                    },
+                ],
+                nameGap: 3,
+                scale: true,
+            },
+            series: [{
+                name: 'Research Output',
+                type: 'radar',
+                areaStyle: {},
+
+                data: [{
+                    value: [
+                        901,
+                        792,
+                        79,
+                    ],
+                    name: 'Output',
+                    label: {
+                        show: true,
+                        formatter: function(params) {
+                            return params.value;
+                        }
+                    }
+                }, ]
+            }]
+        };
+        researchRadar.setOption(optionRadar);
+    });
+</script>
+    <script>
+        $(document).ready(function() {
+            $(".select2").select2({
+                minimumResultsForSearch: -1
+            });
+            $('[data-toggle="tooltip"]').tooltip()
+
+                                                                    var myChart = echarts.init(document.getElementById('scopus-chart-articles'), 'macarons');
+                    option = {
+                        xAxis: {
+                            type: 'category',
+                            boundaryGap: false,
+                            data: [
+                                                                    '2010',
+                                                                    '2011',
+                                                                    '2012',
+                                                                    '2013',
+                                                                    '2014',
+                                                                    '2015',
+                                                                    '2016',
+                                                                    '2017',
+                                                                    '2018',
+                                                                    '2019',
+                                                                    '2020',
+                                                                    '2021',
+                                                                    '2022',
+                                                                    '2023',
+                                                                    '2024',
+                                                                    '2025',
+                                                            ],
+                            axisLabel: {
+                                textStyle: {
+                                    fontSize: '9',
+                                },
+                            }
+                        },
+                        yAxis: {
+                            type: 'value',
+                            axisLabel: {
+                                textStyle: {
+                                    fontSize: '9',
+                                },
+                            }
+                        },
+                        grid: {
+                            left: 40,
+                            top: 20,
+                            right: 20,
+                            bottom: 40
+                        },
+                        series: [{
+                            data: [
+                                                                    4,
+                                                                    5,
+                                                                    11,
+                                                                    11,
+                                                                    19,
+                                                                    22,
+                                                                    65,
+                                                                    85,
+                                                                    159,
+                                                                    137,
+                                                                    196,
+                                                                    189,
+                                                                    171,
+                                                                    240,
+                                                                    258,
+                                                                    163,
+                                                            ],
+                            type: 'line',
+                            smooth: 0.6,
+                            lineStyle: {
+                                color: '#FF6A00',
+                                width: 1
+                            },
+                            // areaStyle: {
+                            //     color: 'rgba(227, 99, 135, 0.3)',
+                            // },
+                            areaStyle: {
+                                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                    offset: 0,
+                                    color: 'rgba(255, 106, 0, 0.3)',
+                                }, {
+                                    offset: 1,
+                                    color: 'rgba(255, 106, 0, 0.1)',
+                                }])
+                            },
+                            label: {
+                                normal: {
+                                    show: true,
+                                    position: 'top'
+                                }
+                            },
+                        }]
+                    };
+                    myChart.setOption(option);
+                                        
+                        
+                        
+            
+            
+            
+            
+                    });
+    </script>
+
+    
+
+<iframe src="https://sinta.kemdikbud.go.id/stat" style="display: none;"></iframe>
+
+<!--
+-->
+</body>
+
+</html>

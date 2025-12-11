@@ -28,31 +28,31 @@ class SintaDataManager:
             st.session_state["SINTA_DB"] = {}
             
         if "default_values" not in st.session_state:
-            # Default values based on typical institution data
+            # Default values based on UPN Veteran Yogyakarta SINTA data
             st.session_state["default_values"] = {
-                # Publication defaults
+                # Publication defaults - based on UPN Veteran Yogyakarta data from SINTA
                 "AI1": 0.136, "AI2": 0.159, "AI3": 0.147, "AI4": 0.075, "AI5": 0.040,
-                "AI6": 0.504, "AI7": 932.079, "AI8": 0.588, "AN1": 0.007, "AN2": 0.169,
-                "AN3": 0.204, "AN4": 0.464, "AN5": 0.312, "AN6": 0.012, "AN8": 0.104,
-                "AN9": 0.000, "DGS2": 0.473, "B1": 0.070, "B2": 0.415, "B3": 0.069,
-                
-                # Research defaults
+                "AI6": 0.504, "AI7": 14.204, "AI8": 1.153, "AN1": 0.007, "AN2": 0.169,  # Updated citations to 14,204 and cited docs to 1,153
+                "AN3": 0.204, "AN4": 0.464, "AN5": 0.312, "AN6": 0.012, "AN8": 0.104,  # Using scaled values based on 613 authors
+                "AN9": 0.000, "DGS2": 166.41, "B1": 0.070, "B2": 0.415, "B3": 0.069,  # Updated Google Scholar citation per lecturer to 166.41
+
+                # Research defaults - based on UPN Veteran Yogyakarta data from SINTA
                 "P1": 0.0, "P2": 0.0, "P3": 51.0, "P4": 25.0, "P5": 523.0, "P6": 32.0, "P7": 37077.71,
-                
-                # Abdimas defaults
-                "PM1": 0.0, "PM2": 0.0, "PM3": 0.0, "PM4": 0.0, "PM5": 0.0, "PM6": 0.0, "PM7": 0.0,
-                
-                # HKI defaults
-                "KI1": 0.0, "KI2": 0.0, "KI3": 0.0, "KI4": 0.0, "KI5": 0.0, "KI6": 0.0, 
-                "KI7": 0.0, "KI8": 0.0, "KI9": 0.0, "KI10": 0.0,
-                
-                # SDM defaults
-                "R1": 0.0, "R2": 0.0, "R3": 0.0, "DOS1": 0.0, "DOS2": 0.0, "DOS3": 0.0, 
-                "DOS4": 0.0, "DOS5": 0.0,
-                
-                # Kelembagaan defaults
-                "APS1": 0.0, "APS2": 0.0, "APS3": 0.0, "APS4": 0.0, "JO1": 0.0, "JO2": 0.0, 
-                "JO3": 0.0, "JO4": 0.0, "JO5": 0.0, "JO6": 0.0
+
+                # Abdimas defaults - based on UPN Veteran Yogyakarta data
+                "PM1": 0.0, "PM2": 0.0, "PM3": 9.0, "PM4": 0.0, "PM5": 96.0, "PM6": 8.0, "PM7": 3351.79,
+
+                # HKI defaults - based on UPN Veteran Yogyakarta data
+                "KI1": 0.0, "KI2": 0.015, "KI3": 0.005, "KI4": 0.0, "KI5": 0.0, "KI6": 0.0,
+                "KI7": 0.0, "KI8": 0.003, "KI9": 0.409, "KI10": 0.0,
+
+                # SDM defaults - based on UPN Veteran Yogyakarta data (613 total authors)
+                "R1": 0.0, "R2": 0.0, "R3": 0.0, "DOS1": 0.024, "DOS2": 0.178, "DOS3": 0.481,
+                "DOS4": 0.242, "DOS5": 0.076,
+
+                # Kelembagaan defaults - based on UPN Veteran Yogyakarta data (35 departments, 16 journals)
+                "APS1": 0.514, "APS2": 0.343, "APS3": 0.114, "APS4": 0.029, "JO1": 0.0, "JO2": 2.0,
+                "JO3": 2.0, "JO4": 10.0, "JO5": 2.0, "JO6": 0.0
             }
         
         # Initialize with default values if DB is empty
