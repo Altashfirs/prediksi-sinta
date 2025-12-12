@@ -7,7 +7,10 @@ and includes analysis functions for strategic planning.
 
 import streamlit as st
 import pandas as pd
-from data_manager import get_val
+from data_manager import get_val, get_data_manager
+
+# Ensure data manager is initialized at module level
+data_manager = get_data_manager()
 from typing import Tuple, Dict, List, Optional
 
 
@@ -39,14 +42,14 @@ class ClusterPredictor:
             "Pengabdian": 0.05  # 5% (sometimes treated separately)
         }
         
-        # Normalization factors
+        # Normalization factors based on SINTA methodology
         self.normalization_factors = {
-            "PUBLICATION": 1776.69,
-            "RESEARCH": 261491.37,
-            "ABDIMAS": 447937.99,
-            "HKI": 14.7,
-            "SDM": 2.443,
-            "INSTITUTIONAL": 2181.33
+            "PUBLICATION": 1776.69,  # Based on SINTA methodology
+            "RESEARCH": 261491.37,   # Based on SINTA methodology
+            "ABDIMAS": 447937.99,    # Based on SINTA methodology
+            "HKI": 14.7,             # Based on SINTA methodology
+            "SDM": 2.443,            # Based on SINTA methodology
+            "INSTITUTIONAL": 2181.33 # Based on SINTA methodology
         }
     
     def calculate_detailed_scores(self) -> Tuple[float, Dict[str, float]]:
