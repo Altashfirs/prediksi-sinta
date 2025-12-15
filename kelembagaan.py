@@ -25,17 +25,17 @@ def main():
     # Format: (Group, Kode, Nama Item, Bobot, Nilai Default from UPN Veteran Yogyakarta profile)
     # Grouping: APS (Akreditasi Prodi) & JO (Jurnal)
     data_kelembagaan = [
-        ("Akreditasi", "APS1", "AKREDITASI PRODI A/UNGGUL/INTERNASIONAL", 40, 0.150),  # Adjusted for UPN's program accreditation profile
-        ("Akreditasi", "APS2", "AKREDITASI PRODI B/BAIK SEKALI", 30, 0.200),  # Adjusted for UPN's program accreditation profile
-        ("Akreditasi", "APS3", "AKREDITASI PRODI C/BAIK", 20, 0.100),  # Adjusted for UPN's program accreditation profile
-        ("Akreditasi", "APS4", "AKREDITASI PRODI D/TIDAK TERAKREDITASI", 0, 0.050),  # Adjusted for UPN's profile
-
-        ("Jurnal", "JO1", "JUMLAH JURNAL TERAKREDITASI S1", 40, 0.2),  # UPN has 16 journals, so ~0.2 each normalized
-        ("Jurnal", "JO2", "JUMLAH JURNAL TERAKREDITASI S2", 30, 0.5),
-        ("Jurnal", "JO3", "JUMLAH JURNAL TERAKREDITASI S3", 20, 1.0),
-        ("Jurnal", "JO4", "JUMLAH JURNAL TERAKREDITASI S4", 10, 3.0),
-        ("Jurnal", "JO5", "JUMLAH JURNAL TERAKREDITASI S5", 5, 5.0),
-        ("Jurnal", "JO6", "JUMLAH JURNAL TERAKREDITASI S6", 2, 5.0),
+        ("Akreditasi", "APS1", "AKREDITASI PRODI A/UNGGUL/INTERNASIONAL", 40, 0.514),
+        ("Akreditasi", "APS2", "AKREDITASI PRODI B/BAIK SEKALI", 30, 0.343),
+        ("Akreditasi", "APS3", "AKREDITASI PRODI C/BAIK", 20, 0.114),
+        ("Akreditasi", "APS4", "AKREDITASI PRODI D/TIDAK TERAKREDITASI", 0, 0.029),
+        
+        ("Jurnal", "JO1", "JUMLAH JURNAL TERAKREDITASI S1", 40, 0.000),
+        ("Jurnal", "JO2", "JUMLAH JURNAL TERAKREDITASI S2", 30, 2.000),
+        ("Jurnal", "JO3", "JUMLAH JURNAL TERAKREDITASI S3", 20, 2.000),
+        ("Jurnal", "JO4", "JUMLAH JURNAL TERAKREDITASI S4", 10, 10.000),
+        ("Jurnal", "JO5", "JUMLAH JURNAL TERAKREDITASI S5", 5, 2.000),
+        ("Jurnal", "JO6", "JUMLAH JURNAL TERAKREDITASI S6", 2, 0.000),
     ]
 
     # --- LAYOUT SETUP ---

@@ -31,30 +31,30 @@ class SintaDataManager:
             # Default values based on actual UPN Veteran Yogyakarta SINTA data from sinta_metrics_cluster_full.json
             st.session_state["default_values"] = {
                 # Publication defaults - based on actual UPN Veteran Yogyakarta SINTA data
-                "AI1": 0.092, "AI2": 0.076, "AI3": 0.139, "AI4": 0.034, "AI5": 0.034,  # Q1-Q4, Non-Q, Non Journal Int
-                "AI6": 0.151, "AI7": 343.01, "AI8": 0.349, # International citations and cited docs
-                "AN1": 0.021, "AN2": 0.202, "AN3": 0.441, "AN4": 2.366, "AN5": 2.294, "AN6": 0.122, # National journal ranks 1-6
-                "AN7": 1.483, "AN8": 0.013, "AN9": 0.0, "AN10": 0.0, # Non-accredited, proceedings, national citations
-                "DGS1": 22.092, "DGS2": 2.426, "DGS3": 9.828, # Google Scholar metrics
-                "B1": 0.202, "B2": 0.622, "B3": 0.025, # Books metrics
+                "AI1": 0.136, "AI2": 0.159, "AI3": 0.147, "AI4": 0.075, "AI5": 0.040,  # Q1-Q4, Non-Q, Non Journal Int
+                "AI6": 0.504, "AI7": 932.079, "AI8": 0.588, # International citations and cited docs
+                "AN1": 0.007, "AN2": 0.169, "AN3": 0.204, "AN4": 0.464, "AN5": 0.312, "AN6": 0.012, # National journal ranks 1-6
+                "AN7": 1.483, "AN8": 0.104, "AN9": 0.000, "AN10": 0.0, # Non-accredited, proceedings, national citations
+                "DGS1": 22.092, "DGS2": 0.473, "DGS3": 9.828, # Google Scholar metrics
+                "B1": 0.070, "B2": 0.415, "B3": 0.069, # Books metrics
 
                 # Research defaults - based on actual UPN Veteran Yogyakarta SINTA data
-                "P1": 0.0, "P2": 0.0, "P3": 18.0, "P4": 7.0, "P5": 486.0, "P6": 10.0, "P7": 2523.96,  # Research metrics
+                "P1": 0.0, "P2": 0.0, "P3": 51.0, "P4": 25.0, "P5": 523.0, "P6": 32.0, "P7": 37077.71,  # Research metrics
 
                 # Abdimas defaults - based on actual UPN Veteran Yogyakarta SINTA data
-                "PM1": 0.0, "PM2": 0.0, "PM3": 6.0, "PM4": 3.0, "PM5": 476.0, "PM6": 13.0, "PM7": 793.35,  # Community service metrics
+                "PM1": 0.0, "PM2": 0.0, "PM3": 9.0, "PM4": 0.0, "PM5": 96.0, "PM6": 8.0, "PM7": 3351.79,  # Community service metrics
 
                 # HKI defaults - based on actual UPN Veteran Yogyakarta SINTA data
-                "KI1": 0.0, "KI2": 0.0, "KI3": 0.004, "KI4": 0.0, "KI5": 0.0, "KI6": 0.0,
-                "KI7": 0.004, "KI8": 0.143, "KI9": 6.0, "KI10": 0.0,  # IPR metrics
+                "KI1": 0.0, "KI2": 0.015, "KI3": 0.005, "KI4": 0.0, "KI5": 0.0, "KI6": 0.0,
+                "KI7": 0.0, "KI8": 0.003, "KI9": 0.409, "KI10": 0.0,  # IPR metrics
 
                 # SDM defaults - based on actual UPN Veteran Yogyakarta SINTA data (613 total authors)
-                "R1": 0.0, "R2": 0.0, "R3": 0.0, "DOS1": 0.004, "DOS2": 0.054, "DOS3": 0.43,
-                "DOS4": 0.318, "DOS5": 0.193, "REV1": 0.0,  # Staff and reviewer metrics
+                "R1": 0.0, "R2": 0.0, "R3": 0.0, "DOS1": 0.024, "DOS2": 0.178, "DOS3": 0.481,
+                "DOS4": 0.242, "DOS5": 0.076, "REV1": 0.0,  # Staff and reviewer metrics
 
                 # Kelembagaan defaults - based on actual UPN Veteran Yogyakarta SINTA data (35 departments)
-                "APS1": 0.0, "APS2": 0.833, "APS3": 0.167, "APS4": 0.0,  # Accreditation program metrics
-                "JO1": 0.0, "JO2": 0.0, "JO3": 0.0, "JO4": 4.0, "JO5": 9.0, "JO6": 1.0  # Journal accreditation metrics
+                "APS1": 0.514, "APS2": 0.343, "APS3": 0.114, "APS4": 0.029,  # Accreditation program metrics
+                "JO1": 0.0, "JO2": 2.0, "JO3": 2.0, "JO4": 10.0, "JO5": 2.0, "JO6": 0.0  # Journal accreditation metrics
             }
 
         # Initialize with default values if DB is empty

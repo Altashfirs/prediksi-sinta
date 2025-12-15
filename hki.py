@@ -20,16 +20,16 @@ def main():
     # --- KONFIGURASI DATA HKI ---
     # (Kode, Nama, Bobot, Default Value from UPN Veteran Yogyakarta profile)
     data_hki = [
-        ("KI1", "HKI PATEN", 40, 0.010),  # Adjusted for UPN
-        ("KI2", "HKI PATEN SEDERHANA", 20, 0.025),  # Adjusted for UPN
-        ("KI3", "HKI MEREK", 1, 0.010),  # Adjusted for UPN
-        ("KI4", "HKI INDIKASI GEOGRAFIS", 10, 0.005),  # Adjusted for UPN
-        ("KI5", "HKI DESAIN INDUSTRI", 20, 0.008),  # Adjusted for UPN
-        ("KI6", "HKI DESAIN TATA LETAK SIRKUIT TERPADU", 20, 0.002),  # Adjusted for UPN
-        ("KI7", "HKI RAHASIA DAGANG", 0, 0.000),  # No change (0 weight)
-        ("KI8", "HKI PERLINDUNGAN VARIETAS TANAMAN", 40, 0.005),  # Adjusted for UPN
-        ("KI9", "HKI HAK CIPTA", 1, 0.500),  # Adjusted for UPN
-        ("KI10", "HKI SELAIN TERDAFTAR / DIBERI / DITERIMA", 1, 0.050),  # Adjusted for UPN
+        ("KI1", "HKI PATEN", 40, 0.000),
+        ("KI2", "HKI PATEN SEDERHANA", 20, 0.015),
+        ("KI3", "HKI MEREK", 1, 0.005),
+        ("KI4", "HKI INDIKASI GEOGRAFIS", 10, 0.000),
+        ("KI5", "HKI DESAIN INDUSTRI", 20, 0.000),
+        ("KI6", "HKI DESAIN TATA LETAK SIRKUIT TERPADU", 20, 0.000),
+        ("KI7", "HKI RAHASIA DAGANG", 0, 0.000),
+        ("KI8", "HKI PERLINDUNGAN VARIETAS TANAMAN", 40, 0.003),
+        ("KI9", "HKI HAK CIPTA", 1, 0.409),
+        ("KI10", "HKI SELAIN TERDAFTAR / DIBERI / DITERIMA", 1, 0.000),
     ]
 
     # --- LAYOUT SETUP ---
