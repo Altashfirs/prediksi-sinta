@@ -23,13 +23,13 @@ def main():
     # --- DATA COMMUNITY SERVICE ---
     # Format: (Kode, Nama Item, Bobot, Nilai Default from UPN Veteran Yogyakarta profile)
     data_com = [
-        ("PM1", "JUMLAH PENGABDIAN MASYARAKAT INTERNASIONAL (KETUA)", 40, 1.0),  # Estimated for UPN
-        ("PM2", "JUMLAH PENGABDIAN MASYARAKAT INTERNASIONAL (ANGGOTA)", 10, 2.0),  # Estimated for UPN
-        ("PM3", "JUMLAH PENGABDIAN MASYARAKAT NASIONAL/EKSTERNAL (KETUA)", 30, 25.0),  # Adjusted for UPN
-        ("PM4", "JUMLAH PENGABDIAN MASYARAKAT NASIONAL/EKSTERNAL (ANGGOTA)", 10, 10.0),  # Adjusted for UPN
-        ("PM5", "JUMLAH PENGABDIAN MASYARAKAT LOKAL/INTERNAL INSTITUSI (KETUA)", 15, 100.0),  # Adjusted for UPN
-        ("PM6", "JUMLAH PENGABDIAN MASYARAKAT LOKAL/INTERNAL INSTITUSI (ANGGOTA)", 5, 15.0),  # Adjusted for UPN
-        ("PM7", "JUMLAH RUPIAH PENGABDIAN MASYARAKAT (JUTA RUPIAH)", 0.05, 5000.0),  # Adjusted for UPN
+        ("PM1", "JUMLAH PENGABDIAN MASYARAKAT INTERNASIONAL (KETUA)", 40, 0.0),
+        ("PM2", "JUMLAH PENGABDIAN MASYARAKAT INTERNASIONAL (ANGGOTA)", 10, 0.0),
+        ("PM3", "JUMLAH PENGABDIAN MASYARAKAT NASIONAL/EKSTERNAL (KETUA)", 30, 9.0),
+        ("PM4", "JUMLAH PENGABDIAN MASYARAKAT NASIONAL/EKSTERNAL (ANGGOTA)", 10, 0.0),
+        ("PM5", "JUMLAH PENGABDIAN MASYARAKAT LOKAL/INTERNAL INSTITUSI (KETUA)", 15, 96.0),
+        ("PM6", "JUMLAH PENGABDIAN MASYARAKAT LOKAL/INTERNAL INSTITUSI (ANGGOTA)", 5, 8.0),
+        ("PM7", "JUMLAH RUPIAH PENGABDIAN MASYARAKAT (JUTA RUPIAH)", 0.05, 3351.79),
     ]
 
     # --- LAYOUT SETUP ---
@@ -99,16 +99,23 @@ def main():
         st.markdown(f"""
         <div style="background-color: #f8f9fa; padding: 15px; border-radius: 8px; border: 1px solid #ddd; margin-bottom: 10px;">
             <h3 style="color: #333; margin:0;">{total_score_raw:,.2f}</h3>
-            <p style="margin:0; font-size: 14px; color: #666;">Total Score Community Service</p>
+            <p style="margin:0; font-size: 14px; color: #666;">Total Score Abdimas</p>
         </div>
         """, unsafe_allow_html=True)
 
-        # Card 2: Ternormalisasi
+        # Card 2: Penyesuaian
+        st.markdown(f"""
+        <div style="background-color: #fff8e1; padding: 15px; border-radius: 8px; border: 1px solid #ffe0b2; margin-bottom: 10px;">
+            <h3 style="color: #f57c00; margin:0;">{score_ternormal:,.2f}</h3>
+            <p style="margin:0; font-size: 14px; color: #f57c00;">Total Score Ternormal</p>
+        </div>
+        """, unsafe_allow_html=True)
+
+        # Card 3: Ternormalisasi (Hasil Akhir)
         st.markdown(f"""
         <div style="background-color: #e6fffa; padding: 15px; border-radius: 8px; border: 1px solid #4fd1c5; margin-bottom: 20px;">
-            <h2 style="color: #234e52; margin:0;">{score_ternormal:,.2f}</h2>
-            <p style="margin:0; font-size: 14px; color: #234e52;"><b>Total Score Ternormal</b></p>
-            <p style="margin:0; font-size: 10px; color: #234e52; margin-top:5px;"><i>Rumus: (Total / {PEMBAGI_NORMALISASI_COM:,.2f}) x 100</i></p>
+            <h2 style="color: #234e52; margin:0;">{score_ternormal * 0.15:,.2f}</h2>
+            <p style="margin:0; font-size: 14px; color: #234e52;"><b>Total Score Ternormal (15%)</b></p>
         </div>
         """, unsafe_allow_html=True)
 

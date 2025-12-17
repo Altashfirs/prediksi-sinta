@@ -23,14 +23,14 @@ def main():
     # --- DATA SDM ---
     # Format: (Kode, Nama Item, Bobot, Nilai Default from UPN Veteran Yogyakarta profile)
     data_sdm = [
-        ("R1", "REVIEWER JURNAL INTERNASIONAL (ORANG)", 2, 0.2),  # Increased for UPN based on 613 authors
-        ("R2", "REVIEWER JURNAL NASIONAL SINTA 1 & 2 (ORANG)", 1, 0.5),  # Increased for UPN
-        ("R3", "REVIEWER JURNAL NASIONAL SINTA 3 S.D. 6 (ORANG)", 0.5, 1.0),  # Increased for UPN
-        ("DOS1", "DOSEN PROFESSOR", 4, 0.050),  # Increased for UPN (30+ professors out of 613 total)
-        ("DOS2", "DOSEN LEKTOR KEPALA", 3, 0.250),  # Increased for UPN
-        ("DOS3", "DOSEN LEKTOR", 2, 0.500),  # Increased for UPN
-        ("DOS4", "DOSEN ASISTEN AHLI", 1, 0.400),  # Increased for UPN
-        ("DOS5", "DOSEN NON JAFA", 0, 0.100),  # Adjusted for UPN
+        ("R1", "REVIEWER JURNAL INTERNASIONAL (ORANG)", 2, 0.0),
+        ("R2", "REVIEWER JURNAL NASIONAL SINTA 1 & 2 (ORANG)", 1, 0.0),
+        ("R3", "REVIEWER JURNAL NASIONAL SINTA 3 S.D. 6 (ORANG)", 0.5, 0.0),
+        ("DOS1", "DOSEN PROFESSOR", 4, 0.024),
+        ("DOS2", "DOSEN LEKTOR KEPALA", 3, 0.178),
+        ("DOS3", "DOSEN LEKTOR", 2, 0.481),
+        ("DOS4", "DOSEN ASISTEN AHLI", 1, 0.242),
+        ("DOS5", "DOSEN NON JAFA", 0, 0.076),
     ]
 
     # --- LAYOUT SETUP ---
@@ -90,7 +90,7 @@ def main():
         # --- RUMUS PERHITUNGAN ---
         # (Total Score / 2.44) * 100
         if total_score_raw > 0:
-            score_ternormal = (total_score_raw / PEMBAGI_NORMALISASI_SDM) * 100
+            score_ternormal = (total_score_raw / max(total_score_raw, PEMBAGI_NORMALISASI_SDM)) * 100
         else:
             score_ternormal = 0.0
 
@@ -99,17 +99,24 @@ def main():
         # Card 1: Total Raw
         st.markdown(f"""
         <div style="background-color: #f8f9fa; padding: 15px; border-radius: 8px; border: 1px solid #ddd; margin-bottom: 10px;">
-            <h3 style="color: #333; margin:0;">{total_score_raw:,.3f}</h3>
+            <h3 style="color: #333; margin:0;">{total_score_raw:,.2f}</h3>
             <p style="margin:0; font-size: 14px; color: #666;">Total Score SDM</p>
         </div>
         """, unsafe_allow_html=True)
 
-        # Card 2: Ternormalisasi
+        # Card 2: Penyesuaian
+        st.markdown(f"""
+        <div style="background-color: #fff8e1; padding: 15px; border-radius: 8px; border: 1px solid #ffe0b2; margin-bottom: 10px;">
+            <h3 style="color: #f57c00; margin:0;">{score_ternormal:,.2f}</h3>
+            <p style="margin:0; font-size: 14px; color: #f57c00;">Total Score Ternormal</p>
+        </div>
+        """, unsafe_allow_html=True)
+
+        # Card 3: Ternormalisasi (Hasil Akhir)
         st.markdown(f"""
         <div style="background-color: #e6fffa; padding: 15px; border-radius: 8px; border: 1px solid #4fd1c5; margin-bottom: 20px;">
-            <h2 style="color: #234e52; margin:0;">{score_ternormal:,.2f}</h2>
-            <p style="margin:0; font-size: 14px; color: #234e52;"><b>Total Score Ternormal</b></p>
-            <p style="margin:0; font-size: 10px; color: #234e52; margin-top:5px;"><i>Rumus: (Total / {PEMBAGI_NORMALISASI_SDM:,.2f}) x 100</i></p>
+            <h2 style="color: #234e52; margin:0;">{score_ternormal * 0.15:,.2f}</h2>
+            <p style="margin:0; font-size: 14px; color: #234e52;"><b>Total Score Ternormal (15%)</b></p>
         </div>
         """, unsafe_allow_html=True)
 

@@ -23,13 +23,13 @@ def main():
     # --- DATA RESEARCH ---
     # Format: (Kode, Nama Item, Bobot, Nilai Default from UPN Veteran Yogyakarta profile)
     data_research = [
-        ("P1", "JUMLAH PENELITIAN HIBAH LUAR NEGERI (KETUA)", 40, 1.0),  # Estimated based on UPN's research profile
-        ("P2", "JUMLAH PENELITIAN HIBAH LUAR NEGERI (ANGGOTA)", 10, 2.0),  # Estimated based on UPN's research profile
-        ("P3", "JUMLAH PENELITIAN HIBAH EKSTERNAL (KETUA)", 30, 150.0),  # Increased based on UPN's research activity
-        ("P4", "JUMLAH PENELITIAN HIBAH EKSTERNAL (ANGGOTA)", 10, 75.0),  # Increased based on UPN's research activity
-        ("P5", "JUMLAH PENELITIAN INTERNAL INSTITUSI (KETUA)", 15, 200.0),  # Adjusted for UPN's research activity
-        ("P6", "JUMLAH PENELITIAN INTERNAL INSTITUSI (ANGGOTA)", 5, 50.0),  # Adjusted for UPN's research activity
-        ("P7", "JUMLAH RUPIAH PENELITIAN (JUTA RUPIAH)", 0.05, 50000.0),  # Increased based on UPN's research funding profile
+        ("P1", "JUMLAH PENELITIAN HIBAH LUAR NEGERI (KETUA)", 40, 0.0),
+        ("P2", "JUMLAH PENELITIAN HIBAH LUAR NEGERI (ANGGOTA)", 10, 0.0),
+        ("P3", "JUMLAH PENELITIAN HIBAH EKSTERNAL (KETUA)", 30, 51.0),
+        ("P4", "JUMLAH PENELITIAN HIBAH EKSTERNAL (ANGGOTA)", 10, 25.0),
+        ("P5", "JUMLAH PENELITIAN INTERNAL INSTITUSI (KETUA)", 15, 523.0),
+        ("P6", "JUMLAH PENELITIAN INTERNAL INSTITUSI (ANGGOTA)", 5, 32.0),
+        ("P7", "JUMLAH RUPIAH PENELITIAN (JUTA RUPIAH)", 0.05, 37077.71),
     ]
 
     # --- LAYOUT SETUP ---
@@ -89,7 +89,7 @@ def main():
         # --- RUMUS PERHITUNGAN ---
         # (Total Score / 261.491,37) * 100
         if total_score_raw > 0:
-            score_ternormal = (total_score_raw / PEMBAGI_NORMALISASI) * 100
+            score_ternormal = (total_score_raw / max(PEMBAGI_NORMALISASI, total_score_raw)) * 100
         else:
             score_ternormal = 0.0
 
@@ -103,12 +103,19 @@ def main():
         </div>
         """, unsafe_allow_html=True)
 
-        # Card 2: Ternormalisasi (Hasil Akhir)
+        # Card 2: Penyesuaian
+        st.markdown(f"""
+        <div style="background-color: #fff8e1; padding: 15px; border-radius: 8px; border: 1px solid #ffe0b2; margin-bottom: 10px;">
+            <h3 style="color: #f57c00; margin:0;">{score_ternormal:,.2f}</h3>
+            <p style="margin:0; font-size: 14px; color: #f57c00;">Total Score Ternormal</p>
+        </div>
+        """, unsafe_allow_html=True)
+
+        # Card 3: Ternormalisasi (Hasil Akhir)
         st.markdown(f"""
         <div style="background-color: #e6fffa; padding: 15px; border-radius: 8px; border: 1px solid #4fd1c5; margin-bottom: 20px;">
-            <h2 style="color: #234e52; margin:0;">{score_ternormal:,.2f}</h2>
-            <p style="margin:0; font-size: 14px; color: #234e52;"><b>Total Score Ternormal</b></p>
-            <p style="margin:0; font-size: 10px; color: #234e52; margin-top:5px;"><i>Rumus: (Total / {PEMBAGI_NORMALISASI:,.2f}) x 100</i></p>
+            <h2 style="color: #234e52; margin:0;">{score_ternormal * 0.15:,.2f}</h2>
+            <p style="margin:0; font-size: 14px; color: #234e52;"><b>Total Score Ternormal (15%)</b></p>
         </div>
         """, unsafe_allow_html=True)
 

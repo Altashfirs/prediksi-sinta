@@ -29,9 +29,9 @@ def main():
         ("Intl", "AI4", "ARTIKEL JURNAL INTERNASIONAL Q4", 25, 0.075),
         ("Intl", "AI5", "ARTIKEL JURNAL INTERNASIONAL NON Q", 20, 0.040),
         ("Intl", "AI6", "ARTIKEL NON JURNAL INTERNASIONAL", 15, 0.504),
-        ("Intl", "AI7", "JUMLAH SITASI PUBLIKASI INTERNASIONAL", 1, 14.204),  # Updated to UPN's citation count (14,204) per author
-        ("Intl", "AI8", "JUMLAH DOKUMEN PUBLIKASI INTERNASIONAL TERSITASI", 1, 1.153),  # Updated to UPN's cited documents (1,153) per author
-
+        ("Intl", "AI7", "JUMLAH SITASI PUBLIKASI INTERNASIONAL", 1, 932.079),
+        ("Intl", "AI8", "JUMLAH DOKUMEN PUBLIKASI INTERNASIONAL TERSITASI", 1, 0.588),
+        
         # --- NASIONAL (AN) ---
         ("Nas", "AN1", "ARTIKEL JURNAL NASIONAL PERINGKAT 1", 25, 0.007),
         ("Nas", "AN2", "ARTIKEL JURNAL NASIONAL PERINGKAT 2", 20, 0.169),
@@ -40,10 +40,10 @@ def main():
         ("Nas", "AN5", "ARTIKEL JURNAL NASIONAL PERINGKAT 5", 5, 0.312),
         ("Nas", "AN6", "ARTIKEL JURNAL NASIONAL PERINGKAT 6", 2, 0.012),
         ("Nas", "AN8", "PROSIDING NASIONAL", 2, 0.104),
-        ("Nas", "AN9", "JUMLAH SITASI PUBLIKASI NASIONAL PER DOSEN", 1, 23.79),  # Updated to UPN's citation per researcher value
-
+        ("Nas", "AN9", "JUMLAH SITASI PUBLIKASI NASIONAL PER DOSEN", 1, 0.000),
+        
         # --- BUKU & LAINNYA (B & DGS) ---
-        ("Other", "DGS2", "GS CITATION PER LECTURER", 1, 166.41),  # Updated to UPN's GScholar citation per lecturer
+        ("Other", "DGS2", "GS CITATION PER LECTURER", 1, 0.473),
         ("Other", "B1", "BUKU AJAR", 20, 0.070),
         ("Other", "B2", "BUKU REFERENSI", 40, 0.415),
         ("Other", "B3", "BUKU MONOGRAF", 20, 0.069),
@@ -112,28 +112,33 @@ def main():
         st.markdown("### 📊 Analisis Skor Publikasi")
 
         # --- HITUNG SKOR TERNORMALISASI ---
-        normalized_score = (total_score_all / NORMALIZER_PUB) * 100
+        normalized_score = (total_score_all / max(total_score_all, NORMALIZER_PUB)) * 100
 
         # 1. SCORE CARDS (TAMPILAN BARU: 2 KOLOM)
-        c_raw, c_norm = st.columns(2)
+        # Card 1: Total Raw
+        st.markdown(f"""
+        <div style="background-color: #f8f9fa; padding: 15px; border-radius: 8px; border: 1px solid #ddd; margin-bottom: 10px;">
+            <h3 style="color: #333; margin:0;">{total_score_all:,.2f}</h3>
+            <p style="margin:0; font-size: 14px; color: #666;">Total Score Publikasi</p>
+        </div>
+        """, unsafe_allow_html=True)
 
-        with c_raw:
-            st.markdown(f"""
-            <div style="background-color: #f0f2f6; padding: 15px; border-radius: 10px; text-align: center; height: 100%;">
-                <h3 style="color: #555; margin:0;">{total_score_all:,.2f}</h3>
-                <p style="margin:0; font-size: 12px; color: #666;">Total Skor (Raw)</p>
-            </div>
-            """, unsafe_allow_html=True)
+        # Card 2: Penyesuaian
+        st.markdown(f"""
+        <div style="background-color: #fff8e1; padding: 15px; border-radius: 8px; border: 1px solid #ffe0b2; margin-bottom: 10px;">
+            <h3 style="color: #f57c00; margin:0;">{normalized_score:,.2f}</h3>
+            <p style="margin:0; font-size: 14px; color: #f57c00;">Total Score Ternormal</p>
+        </div>
+        """, unsafe_allow_html=True)
 
-        with c_norm:
-            st.markdown(f"""
-            <div style="background-color: #e6fffa; padding: 15px; border-radius: 10px; text-align: center; border: 1px solid #4fd1c5; height: 100%;">
-                <h3 style="color: #285e61; margin:0;">{normalized_score:,.2f}</h3>
-                <p style="margin:0; font-size: 12px; color: #285e61;"><b>Skor Ternormalisasi</b></p>
-            </div>
-            """, unsafe_allow_html=True)
+        # Card 3: Ternormalisasi (Hasil Akhir)
+        st.markdown(f"""
+        <div style="background-color: #e6fffa; padding: 15px; border-radius: 8px; border: 1px solid #4fd1c5; margin-bottom: 20px;">
+            <h2 style="color: #234e52; margin:0;">{normalized_score * 0.25:,.2f}</h2>
+            <p style="margin:0; font-size: 14px; color: #234e52;"><b>Total Score Ternormal (25%)</b></p>
+        </div>
+        """, unsafe_allow_html=True)
 
-        st.caption(f"*Rumus Normalisasi: Total Skor / {NORMALIZER_PUB:,.2f}")
         st.divider()
 
         # 2. BREAKDOWN METRICS

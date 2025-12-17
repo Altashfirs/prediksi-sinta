@@ -25,17 +25,17 @@ def main():
     # Format: (Group, Kode, Nama Item, Bobot, Nilai Default from UPN Veteran Yogyakarta profile)
     # Grouping: APS (Akreditasi Prodi) & JO (Jurnal)
     data_kelembagaan = [
-        ("Akreditasi", "APS1", "AKREDITASI PRODI A/UNGGUL/INTERNASIONAL", 40, 0.150),  # Adjusted for UPN's program accreditation profile
-        ("Akreditasi", "APS2", "AKREDITASI PRODI B/BAIK SEKALI", 30, 0.200),  # Adjusted for UPN's program accreditation profile
-        ("Akreditasi", "APS3", "AKREDITASI PRODI C/BAIK", 20, 0.100),  # Adjusted for UPN's program accreditation profile
-        ("Akreditasi", "APS4", "AKREDITASI PRODI D/TIDAK TERAKREDITASI", 0, 0.050),  # Adjusted for UPN's profile
-
-        ("Jurnal", "JO1", "JUMLAH JURNAL TERAKREDITASI S1", 40, 0.2),  # UPN has 16 journals, so ~0.2 each normalized
-        ("Jurnal", "JO2", "JUMLAH JURNAL TERAKREDITASI S2", 30, 0.5),
-        ("Jurnal", "JO3", "JUMLAH JURNAL TERAKREDITASI S3", 20, 1.0),
-        ("Jurnal", "JO4", "JUMLAH JURNAL TERAKREDITASI S4", 10, 3.0),
-        ("Jurnal", "JO5", "JUMLAH JURNAL TERAKREDITASI S5", 5, 5.0),
-        ("Jurnal", "JO6", "JUMLAH JURNAL TERAKREDITASI S6", 2, 5.0),
+        ("Akreditasi", "APS1", "AKREDITASI PRODI A/UNGGUL/INTERNASIONAL", 40, 0.514),
+        ("Akreditasi", "APS2", "AKREDITASI PRODI B/BAIK SEKALI", 30, 0.343),
+        ("Akreditasi", "APS3", "AKREDITASI PRODI C/BAIK", 20, 0.114),
+        ("Akreditasi", "APS4", "AKREDITASI PRODI D/TIDAK TERAKREDITASI", 0, 0.029),
+        
+        ("Jurnal", "JO1", "JUMLAH JURNAL TERAKREDITASI S1", 40, 0.000),
+        ("Jurnal", "JO2", "JUMLAH JURNAL TERAKREDITASI S2", 30, 2.000),
+        ("Jurnal", "JO3", "JUMLAH JURNAL TERAKREDITASI S3", 20, 2.000),
+        ("Jurnal", "JO4", "JUMLAH JURNAL TERAKREDITASI S4", 10, 10.000),
+        ("Jurnal", "JO5", "JUMLAH JURNAL TERAKREDITASI S5", 5, 2.000),
+        ("Jurnal", "JO6", "JUMLAH JURNAL TERAKREDITASI S6", 2, 0.000),
     ]
 
     # --- LAYOUT SETUP ---
@@ -100,7 +100,7 @@ def main():
 
         # 3. Total Score Ternormal ((Penyesuaian / 2181.33) * 100)
         if score_penyesuaian > 0:
-            score_ternormal = (score_penyesuaian / PEMBAGI_NORMALISASI) * 100
+            score_ternormal = (score_penyesuaian / max(PEMBAGI_NORMALISASI, score_penyesuaian)) * 100
         else:
             score_ternormal = 0.0
 
@@ -128,6 +128,13 @@ def main():
             <h2 style="color: #234e52; margin:0;">{score_ternormal:,.2f}</h2>
             <p style="margin:0; font-size: 14px; color: #234e52;"><b>Total Score Ternormal</b></p>
             <p style="margin:0; font-size: 10px; color: #234e52; margin-top:5px;"><i>Rumus: (Score Penyesuaian / {PEMBAGI_NORMALISASI:,.2f}) x 100</i></p>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        st.markdown(f"""
+        <div style="background-color: #e6fffa; padding: 15px; border-radius: 8px; border: 1px solid #4fd1c5; margin-bottom: 20px;">
+            <h2 style="color: #234e52; margin:0;">{score_ternormal * 0.15:,.2f}</h2>
+            <p style="margin:0; font-size: 14px; color: #234e52;"><b>Total Score Ternormal (15%)</b></p>
         </div>
         """, unsafe_allow_html=True)
 

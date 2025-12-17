@@ -130,7 +130,7 @@ class ClusterPredictor:
         ]
 
         raw_score = sum([get_val(code) * weight for _, code, _, weight, _ in pub_data])
-        normalized_score = (raw_score / 1776.69) * 100 if 1776.69 > 0 else 0
+        normalized_score = (raw_score / max(raw_score, 1776.69)) * 100 if 1776.69 > 0 else 0
         return normalized_score
     
     def _calculate_research_score(self) -> float:
@@ -155,7 +155,7 @@ class ClusterPredictor:
                 value = get_val(f"v_{code}")
                 raw_score += value * weight
 
-        normalized_score = (raw_score / 261491.37) * 100 if 261491.37 > 0 else 0
+        normalized_score = (raw_score / max(raw_score, 261491.37)) * 100 if 261491.37 > 0 else 0
         return normalized_score
 
     def _calculate_abdimas_score(self) -> float:
@@ -180,7 +180,7 @@ class ClusterPredictor:
                 value = get_val(f"v_{code}")
                 raw_score += value * weight
 
-        normalized_score = (raw_score / 447937.99) * 100 if 447937.99 > 0 else 0
+        normalized_score = (raw_score / max(raw_score, 447937.99)) * 100 if 447937.99 > 0 else 0
         return normalized_score
     
     def _calculate_hki_score(self) -> float:
@@ -200,21 +200,21 @@ class ClusterPredictor:
         ]
 
         raw_score = sum([get_val(f"v_{code}") * weight for code, _, weight, _ in hki_data])
-        normalized_score = (raw_score / 14.7) * 100 if 14.7 > 0 else 0
+        normalized_score = (raw_score / max(raw_score, 14.7)) * 100 if 14.7 > 0 else 0
         return normalized_score
     
     def _calculate_sdm_score(self) -> float:
         """Calculate normalized SDM score."""
         # Data from sdm.py - UPN Veteran Yogyakarta values
         sdm_data = [
-            ("R1", "REVIEWER JURNAL INTERNASIONAL (ORANG)", 2, 0.2),  # Updated for UPN
-            ("R2", "REVIEWER JURNAL NASIONAL SINTA 1 & 2 (ORANG)", 1, 0.5),  # Updated for UPN
-            ("R3", "REVIEWER JURNAL NASIONAL SINTA 3 S.D. 6 (ORANG)", 0.5, 1.0),  # Updated for UPN
-            ("DOS1", "DOSEN PROFESSOR", 4, 0.050),  # Updated for UPN
-            ("DOS2", "DOSEN LEKTOR KEPALA", 3, 0.250),  # Updated for UPN
-            ("DOS3", "DOSEN LEKTOR", 2, 0.500),  # Updated for UPN
-            ("DOS4", "DOSEN ASISTEN AHLI", 1, 0.400),  # Updated for UPN
-            ("DOS5", "DOSEN NON JAFA", 0, 0.100),  # Updated for UPN
+            ("R1", "REVIEWER JURNAL INTERNASIONAL (ORANG)", 2, 0.0),
+            ("R2", "REVIEWER JURNAL NASIONAL SINTA 1 & 2 (ORANG)", 1, 0.0),
+            ("R3", "REVIEWER JURNAL NASIONAL SINTA 3 S.D. 6 (ORANG)", 0.5, 0.0),
+            ("DOS1", "DOSEN PROFESSOR", 4, 0.024),
+            ("DOS2", "DOSEN LEKTOR KEPALA", 3, 0.178),
+            ("DOS3", "DOSEN LEKTOR", 2, 0.481),
+            ("DOS4", "DOSEN ASISTEN AHLI", 1, 0.242),
+            ("DOS5", "DOSEN NON JAFA", 0, 0.076),
         ]
 
         raw_score = sum([get_val(f"v_{code}") * weight for code, _, weight, _ in sdm_data])
@@ -239,7 +239,7 @@ class ClusterPredictor:
 
         raw_score = sum([get_val(f"v_{code}") * weight for _, code, _, weight in kel_data])
         adjusted_score = raw_score * 0.30  # Apply adjustment factor
-        normalized_score = (adjusted_score / 2181.33) * 100 if 2181.33 > 0 else 0
+        normalized_score = (adjusted_score / max(adjusted_score, 2181.33)) * 100 if 2181.33 > 0 else 0
         return normalized_score
     
     def predict_cluster(self, score: float) -> Tuple[str, str, str]:

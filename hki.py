@@ -20,16 +20,16 @@ def main():
     # --- KONFIGURASI DATA HKI ---
     # (Kode, Nama, Bobot, Default Value from UPN Veteran Yogyakarta profile)
     data_hki = [
-        ("KI1", "HKI PATEN", 40, 0.010),  # Adjusted for UPN
-        ("KI2", "HKI PATEN SEDERHANA", 20, 0.025),  # Adjusted for UPN
-        ("KI3", "HKI MEREK", 1, 0.010),  # Adjusted for UPN
-        ("KI4", "HKI INDIKASI GEOGRAFIS", 10, 0.005),  # Adjusted for UPN
-        ("KI5", "HKI DESAIN INDUSTRI", 20, 0.008),  # Adjusted for UPN
-        ("KI6", "HKI DESAIN TATA LETAK SIRKUIT TERPADU", 20, 0.002),  # Adjusted for UPN
-        ("KI7", "HKI RAHASIA DAGANG", 0, 0.000),  # No change (0 weight)
-        ("KI8", "HKI PERLINDUNGAN VARIETAS TANAMAN", 40, 0.005),  # Adjusted for UPN
-        ("KI9", "HKI HAK CIPTA", 1, 0.500),  # Adjusted for UPN
-        ("KI10", "HKI SELAIN TERDAFTAR / DIBERI / DITERIMA", 1, 0.050),  # Adjusted for UPN
+        ("KI1", "HKI PATEN", 40, 0.000),
+        ("KI2", "HKI PATEN SEDERHANA", 20, 0.015),
+        ("KI3", "HKI MEREK", 1, 0.005),
+        ("KI4", "HKI INDIKASI GEOGRAFIS", 10, 0.000),
+        ("KI5", "HKI DESAIN INDUSTRI", 20, 0.000),
+        ("KI6", "HKI DESAIN TATA LETAK SIRKUIT TERPADU", 20, 0.000),
+        ("KI7", "HKI RAHASIA DAGANG", 0, 0.000),
+        ("KI8", "HKI PERLINDUNGAN VARIETAS TANAMAN", 40, 0.003),
+        ("KI9", "HKI HAK CIPTA", 1, 0.409),
+        ("KI10", "HKI SELAIN TERDAFTAR / DIBERI / DITERIMA", 1, 0.000),
     ]
 
     # --- LAYOUT SETUP ---
@@ -88,25 +88,34 @@ def main():
         # --- RUMUS BARU ---
         # (Total Score / 14.7) * 100
         if total_score_raw > 0:
-            score_normalized = (total_score_raw / 14.7) * 100
+            score_normalized = (total_score_raw / max(total_score_raw, 14.7)) * 100
         else:
             score_normalized = 0.0
 
         # Tampilan Kartu Skor
         st.markdown(f"""
-        <div style="display: flex; gap: 10px; margin-bottom: 10px;">
-            <div style="flex: 1; background-color: #f8f9fa; padding: 15px; border-radius: 8px; text-align: center; border: 1px solid #ddd;">
-                <h2 style="color: #333; margin:0;">{total_score_raw:,.3f}</h2>
-                <small style="color: #666;">Total Score (Raw)</small>
-            </div>
-            <div style="flex: 1; background-color: #e6fffa; padding: 15px; border-radius: 8px; text-align: center; border: 1px solid #4fd1c5;">
-                <h2 style="color: #234e52; margin:0;">{score_normalized:,.2f}</h2>
-                <small style="color: #234e52;"><b>Skor Ternormal</b></small>
-            </div>
+        <div style="background-color: #f8f9fa; padding: 15px; border-radius: 8px; border: 1px solid #ddd; margin-bottom: 10px;">
+            <h3 style="color: #333; margin:0;">{total_score_raw:,.2f}</h3>
+            <p style="margin:0; font-size: 14px; color: #666;">Total Score HKI</p>
         </div>
         """, unsafe_allow_html=True)
 
-        st.caption("ℹ️ Rumus: (Total Score / 14.7) × 100")
+        # Card 2: Penyesuaian
+        st.markdown(f"""
+        <div style="background-color: #fff8e1; padding: 15px; border-radius: 8px; border: 1px solid #ffe0b2; margin-bottom: 10px;">
+            <h3 style="color: #f57c00; margin:0;">{score_normalized:,.2f}</h3>
+            <p style="margin:0; font-size: 14px; color: #f57c00;">Total Score Ternormal</p>
+        </div>
+        """, unsafe_allow_html=True)
+
+        # Card 3: Ternormalisasi (Hasil Akhir)
+        st.markdown(f"""
+        <div style="background-color: #e6fffa; padding: 15px; border-radius: 8px; border: 1px solid #4fd1c5; margin-bottom: 20px;">
+            <h2 style="color: #234e52; margin:0;">{score_normalized * 0.10:,.2f}</h2>
+            <p style="margin:0; font-size: 14px; color: #234e52;"><b>Total Score Ternormal (10%)</b></p>
+        </div>
+        """, unsafe_allow_html=True)
+
         st.divider()
 
         # Visualisasi

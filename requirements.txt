@@ -9,3 +9,7 @@ pytest-cov>=2.10.0
 
 # For data persistence and management
 python-dateutil>=2.8.0
+
+# For web scraping
+requests>=2.25.0
+beautifulsoup4>=4.9.0
