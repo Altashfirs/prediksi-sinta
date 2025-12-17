@@ -130,6 +130,13 @@ def main():
             <p style="margin:0; font-size: 10px; color: #234e52; margin-top:5px;"><i>Rumus: (Score Penyesuaian / {PEMBAGI_NORMALISASI:,.2f}) x 100</i></p>
         </div>
         """, unsafe_allow_html=True)
+        
+        st.markdown(f"""
+        <div style="background-color: #e6fffa; padding: 15px; border-radius: 8px; border: 1px solid #4fd1c5; margin-bottom: 20px;">
+            <h2 style="color: #234e52; margin:0;">{score_ternormal * 0.15:,.2f}</h2>
+            <p style="margin:0; font-size: 14px; color: #234e52;"><b>Total Score Ternormal (15%)</b></p>
+        </div>
+        """, unsafe_allow_html=True)
 
         st.divider()
 

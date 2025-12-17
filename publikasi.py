@@ -115,25 +115,30 @@ def main():
         normalized_score = (total_score_all / max(total_score_all, NORMALIZER_PUB)) * 100
 
         # 1. SCORE CARDS (TAMPILAN BARU: 2 KOLOM)
-        c_raw, c_norm = st.columns(2)
+        # Card 1: Total Raw
+        st.markdown(f"""
+        <div style="background-color: #f8f9fa; padding: 15px; border-radius: 8px; border: 1px solid #ddd; margin-bottom: 10px;">
+            <h3 style="color: #333; margin:0;">{total_score_all:,.2f}</h3>
+            <p style="margin:0; font-size: 14px; color: #666;">Total Score Publikasi</p>
+        </div>
+        """, unsafe_allow_html=True)
 
-        with c_raw:
-            st.markdown(f"""
-            <div style="background-color: #f0f2f6; padding: 15px; border-radius: 10px; text-align: center; height: 100%;">
-                <h3 style="color: #555; margin:0;">{total_score_all:,.2f}</h3>
-                <p style="margin:0; font-size: 12px; color: #666;">Total Skor (Raw)</p>
-            </div>
-            """, unsafe_allow_html=True)
+        # Card 2: Penyesuaian
+        st.markdown(f"""
+        <div style="background-color: #fff8e1; padding: 15px; border-radius: 8px; border: 1px solid #ffe0b2; margin-bottom: 10px;">
+            <h3 style="color: #f57c00; margin:0;">{normalized_score:,.2f}</h3>
+            <p style="margin:0; font-size: 14px; color: #f57c00;">Total Score Ternormal</p>
+        </div>
+        """, unsafe_allow_html=True)
 
-        with c_norm:
-            st.markdown(f"""
-            <div style="background-color: #e6fffa; padding: 15px; border-radius: 10px; text-align: center; border: 1px solid #4fd1c5; height: 100%;">
-                <h3 style="color: #285e61; margin:0;">{normalized_score:,.2f}</h3>
-                <p style="margin:0; font-size: 12px; color: #285e61;"><b>Skor Ternormalisasi</b></p>
-            </div>
-            """, unsafe_allow_html=True)
+        # Card 3: Ternormalisasi (Hasil Akhir)
+        st.markdown(f"""
+        <div style="background-color: #e6fffa; padding: 15px; border-radius: 8px; border: 1px solid #4fd1c5; margin-bottom: 20px;">
+            <h2 style="color: #234e52; margin:0;">{normalized_score * 0.25:,.2f}</h2>
+            <p style="margin:0; font-size: 14px; color: #234e52;"><b>Total Score Ternormal (25%)</b></p>
+        </div>
+        """, unsafe_allow_html=True)
 
-        st.caption(f"*Rumus Normalisasi: Total Skor / {NORMALIZER_PUB:,.2f}")
         st.divider()
 
         # 2. BREAKDOWN METRICS

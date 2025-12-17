@@ -94,19 +94,28 @@ def main():
 
         # Tampilan Kartu Skor
         st.markdown(f"""
-        <div style="display: flex; gap: 10px; margin-bottom: 10px;">
-            <div style="flex: 1; background-color: #f8f9fa; padding: 15px; border-radius: 8px; text-align: center; border: 1px solid #ddd;">
-                <h2 style="color: #333; margin:0;">{total_score_raw:,.3f}</h2>
-                <small style="color: #666;">Total Score (Raw)</small>
-            </div>
-            <div style="flex: 1; background-color: #e6fffa; padding: 15px; border-radius: 8px; text-align: center; border: 1px solid #4fd1c5;">
-                <h2 style="color: #234e52; margin:0;">{score_normalized:,.2f}</h2>
-                <small style="color: #234e52;"><b>Skor Ternormal</b></small>
-            </div>
+        <div style="background-color: #f8f9fa; padding: 15px; border-radius: 8px; border: 1px solid #ddd; margin-bottom: 10px;">
+            <h3 style="color: #333; margin:0;">{total_score_raw:,.2f}</h3>
+            <p style="margin:0; font-size: 14px; color: #666;">Total Score HKI</p>
         </div>
         """, unsafe_allow_html=True)
 
-        st.caption("ℹ️ Rumus: (Total Score / 14.7) × 100")
+        # Card 2: Penyesuaian
+        st.markdown(f"""
+        <div style="background-color: #fff8e1; padding: 15px; border-radius: 8px; border: 1px solid #ffe0b2; margin-bottom: 10px;">
+            <h3 style="color: #f57c00; margin:0;">{score_normalized:,.2f}</h3>
+            <p style="margin:0; font-size: 14px; color: #f57c00;">Total Score Ternormal</p>
+        </div>
+        """, unsafe_allow_html=True)
+
+        # Card 3: Ternormalisasi (Hasil Akhir)
+        st.markdown(f"""
+        <div style="background-color: #e6fffa; padding: 15px; border-radius: 8px; border: 1px solid #4fd1c5; margin-bottom: 20px;">
+            <h2 style="color: #234e52; margin:0;">{score_normalized * 0.10:,.2f}</h2>
+            <p style="margin:0; font-size: 14px; color: #234e52;"><b>Total Score Ternormal (10%)</b></p>
+        </div>
+        """, unsafe_allow_html=True)
+
         st.divider()
 
         # Visualisasi
