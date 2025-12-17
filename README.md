@@ -71,8 +71,8 @@ Pastikan Anda sudah menginstall Python. Ikuti langkah berikut:
 
 1.  **Clone Repository**
     ```bash
-    git clone [https://github.com/username-anda/prediksi-cluster-sinta.git](https://github.com/username-anda/prediksi-cluster-sinta.git)
-    cd prediksi-cluster-sinta
+    git clone https://github.com/Altashfirs/prediksi-sinta.git
+    cd prediksi-sinta
     ```
 
 2.  **Install Library yang Dibutuhkan**
@@ -81,25 +81,11 @@ Pastikan Anda sudah menginstall Python. Ikuti langkah berikut:
     ```
 
 3.  **Jalankan Aplikasi**
-    Pilih modul yang ingin disimulasikan:
-
-    *Simulasi Abdimas:*
-    ```bash
-    streamlit run abdimas.py
-    ```
-
-    *Simulasi SDM:*
-    ```bash
-    streamlit run sdm.py
-    ```
-
+   
     *Dashboard Utama:*
     ```bash
     streamlit run main.py
     ```
-
-    *(Ganti nama file sesuai kebutuhan modul lainnya)*
-
 ---
 
 ## 🎯 Fitur Baru & Penyempurnaan
