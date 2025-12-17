@@ -78,6 +78,7 @@ def main():
             "💡 HKI",
             "👥 SDM",
             "🏛️ Kelembagaan",
+            "🔄 Scraping Data",
             "⚙️ Pengaturan"
         ])
 
@@ -316,6 +317,14 @@ def main():
         run_module_safely("sdm")
     elif menu == "🏛️ Kelembagaan":
         run_module_safely("kelembagaan")
+    elif menu == "🔄 Scraping Data":
+        # Import and run the scraping module
+        try:
+            from scraping_module import scraping_page
+            scraping_page()
+        except ImportError as e:
+            st.error(f"Error importing scraping module: {e}")
+            st.info("Pastikan file scraping_module.py ada di direktori utama.")
     elif menu == "⚙️ Pengaturan":
         st.title("⚙️ Pengaturan Aplikasi")
         st.info("Pengaturan untuk sistem prediksi SINTA")
